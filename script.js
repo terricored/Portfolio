@@ -1,8 +1,11 @@
 const container = document.querySelector(".container");
 const center = document.querySelector(".center-circle");
 
+const floatStyle = document.createElement("style");
+document.head.appendChild(floatStyle);
+
 const options = [
-  "Option1",
+  "Option10",
   "Option2",
   "Option3",
   "Option4",
@@ -56,7 +59,7 @@ function applyFloating(
     "s";
   const delay = (Math.random() * 1).toFixed(2) + "s";
 
-  const styleSheet = document.styleSheets[0];
+  const styleSheet = floatStyle.sheet;
   const animationName = `float${Math.floor(Math.random() * 100000)}`; // unique name
 
   const baseTranslate = centered ? "translate(-50%, -50%) " : "";
