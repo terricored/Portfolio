@@ -73,7 +73,7 @@ function applyFloating(
 
 function loadGallery() {
     const artPieces = artData;
-    const radius = 160;
+    const radius = 200;
 
     center.style.backgroundImage = `url('${DEFAULT_IMG}')`;
 

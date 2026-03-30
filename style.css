@@ -1,6 +1,7 @@
 @font-face {
-  font-family: 'CustomFont'; 
-  src: url('https://raw.githubusercontent.com/terricored/Portfolio/main/assets/testfont.ttf') format('truetype');
+  font-family: "CustomFont";
+  src: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/testfont.ttf")
+    format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -13,7 +14,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'CustomFont', sans-serif;
+  font-family: "CustomFont", sans-serif;
 }
 
 .container {
@@ -59,9 +60,12 @@ body {
 }
 
 .option span {
-  font-family: 'CustomFont', sans-serif;
-  font-size: 1.1rem;
+  font-family: "CustomFont", sans-serif;
+  font-size: 3rem;
   letter-spacing: 1px;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  white-space: nowrap;
   display: inline-block;
   /*animation: float 3s ease-in-out infinite; */
 }
