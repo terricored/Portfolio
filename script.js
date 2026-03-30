@@ -72,7 +72,7 @@ preloadAssets(artData);
     }
 
     const artPieces = artData;
-    const baseRadius = window.innerWidth < 600 ? 140 : 340;
+    const baseRadius = window.innerWidth < 600 ? 140 : 240;
     const variationVar = window.innerWidth < 600 ? 15 : 30;
 
 
