@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     artPieces.forEach((art, i) => {
       const total = artPieces.length;
       const angle = (360 / total) * i + 22.5;
-      const snappedAngle = (Math.round((angle - 22.5) / 45) * 45) % 360;
+      const snappedAngle = (Math.round(angle / 45) * 45) % 360;
       const directionImg = `${GITHUB_ASSETS}${snappedAngle}n.png`;
 
       const opt = document.createElement("div");
