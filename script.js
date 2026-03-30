@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.head.appendChild(floatStyle);
 
   const GITHUB_ASSETS = "https://cdn.jsdelivr.net/gh/terricored/Portfolio@main/assets/";
-  const DEFAULT_IMG = `${GITHUB_ASSETS}default_center.png`;
-  const HOVER_IMG = `${GITHUB_ASSETS}hover_center.png`;
+  const DEFAULT_IMG = `${GITHUB_ASSETS}default_centern.png`;
+  const HOVER_IMG = `${GITHUB_ASSETS}hover_centern.png`;
 
   /**
    * Returns a random number in [-max,-min] or [min,max]
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const total = artPieces.length;
       const angle = (360 / total) * i + 22.5;
       const snappedAngle = (Math.round((angle - 22.5) / 45) * 45) % 360;
-      const directionImg = `${GITHUB_ASSETS}${snappedAngle}.png`;
+      const directionImg = `${GITHUB_ASSETS}${snappedAngle}n.png`;
 
       const opt = document.createElement("div");
       opt.classList.add("option");
