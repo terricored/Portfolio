@@ -4,32 +4,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const floatStyle = document.createElement("style");
   document.head.appendChild(floatStyle);
 
-  const GITHUB_ASSETS = "https://cdn.jsdelivr.net/gh/terricored/Portfolio@main/assets/";
+  const GITHUB_ASSETS =
+    "https://raw.githubusercontent.com/terricored/Portfolio/main/assets/";
   const DEFAULT_IMG = `${GITHUB_ASSETS}default_centern.png`;
   const HOVER_IMG = `${GITHUB_ASSETS}hover_centern.png`;
 
   function preloadAssets(artPieces) {
     const imagesToPreload = [
-        'https://cdn.jsdelivr.net/gh/terricored/Portfolio@main/assets/default_centern.png'
+      "https://raw.githubusercontent.com/terricored/Portfolio/main/assets/default_centern.png"
     ];
 
     // Add all art-specific images from your data
-    artPieces.forEach(art => {
-        // Preload the center hover images (0n.png, 1n.png, etc)
-        imagesToPreload.push(`https://cdn.jsdelivr.net/gh/terricored/Portfolio@main/assets/${art.id}n.png`);
-        // Preload the main gallery images if they are different
-        if (art.image) imagesToPreload.push(art.image);
+    artPieces.forEach((art) => {
+      // Preload the center hover images (0n.png, 1n.png, etc)
+      imagesToPreload.push(
+        `https://raw.githubusercontent.com/terricored/Portfolio/main/assets/${art.id}n.png`
+      );
+      // Preload the main gallery images if they are different
+      if (art.image) imagesToPreload.push(art.image);
     });
 
-    imagesToPreload.forEach(src => {
-        const img = new Image();
-        img.src = src;
+    imagesToPreload.forEach((src) => {
+      const img = new Image();
+      img.src = src;
     });
-    
-    console.log("Preloading started for " + imagesToPreload.length + " assets.");
-}
 
-preloadAssets(artData);
+    console.log(
+      "Preloading started for " + imagesToPreload.length + " assets."
+    );
+  }
+
+  preloadAssets(artData);
 
   /**
    * Returns a random number in [-max,-min] or [min,max]
@@ -42,11 +47,24 @@ preloadAssets(artData);
   /**
    * Apply a randomized floating/pulsing animation
    */
-  function applyFloating(el, minX, maxX, minY, maxY, minScale, maxScale, minDuration, maxDuration, centered = false) {
-    const floatX = randomSigned(minX, maxX); 
-    const floatY = randomSigned(minY, maxY); 
+  function applyFloating(
+    el,
+    minX,
+    maxX,
+    minY,
+    maxY,
+    minScale,
+    maxScale,
+    minDuration,
+    maxDuration,
+    centered = false
+  ) {
+    const floatX = randomSigned(minX, maxX);
+    const floatY = randomSigned(minY, maxY);
     const scale = (1 + randomSigned(minScale, maxScale)).toFixed(2);
-    const duration = (minDuration + Math.random() * (maxDuration - minDuration)).toFixed(2) + "s";
+    const duration =
+      (minDuration + Math.random() * (maxDuration - minDuration)).toFixed(2) +
+      "s";
     const delay = (Math.random() * 1).toFixed(2) + "s";
 
     const styleSheet = floatStyle.sheet;
@@ -55,9 +73,15 @@ preloadAssets(artData);
 
     const keyframes = `@keyframes ${animationName} {
       0%   { transform: ${baseTranslate}translate(0,0) scale(1); }
-      25%  { transform: ${baseTranslate}translate(${floatX.toFixed(2)}px, ${floatY.toFixed(2)}px) scale(${scale}); }
-      50%  { transform: ${baseTranslate}translate(${-floatX.toFixed(2)}px, ${-floatY.toFixed(2)}px) scale(1); }
-      75%  { transform: ${baseTranslate}translate(${(floatX / 2).toFixed(2)}px, ${(-floatY / 2).toFixed(2)}px) scale(${scale}); }
+      25%  { transform: ${baseTranslate}translate(${floatX.toFixed(
+      2
+    )}px, ${floatY.toFixed(2)}px) scale(${scale}); }
+      50%  { transform: ${baseTranslate}translate(${-floatX.toFixed(
+      2
+    )}px, ${-floatY.toFixed(2)}px) scale(1); }
+      75%  { transform: ${baseTranslate}translate(${(floatX / 2).toFixed(
+      2
+    )}px, ${(-floatY / 2).toFixed(2)}px) scale(${scale}); }
       100% { transform: ${baseTranslate}translate(0,0) scale(1); }
     }`;
 
@@ -66,15 +90,16 @@ preloadAssets(artData);
   }
 
   function loadGallery() {
-    if (typeof artData === 'undefined') {
-      console.error("artData is not defined. Ensure data.js is loaded before script.js");
+    if (typeof artData === "undefined") {
+      console.error(
+        "artData is not defined. Ensure data.js is loaded before script.js"
+      );
       return;
     }
 
     const artPieces = artData;
     const baseRadius = window.innerWidth < 600 ? 140 : 240;
     const variationVar = window.innerWidth < 600 ? 15 : 30;
-
 
     const midLayer = document.querySelector(".hover-mid-layer");
     const overlayLayer = document.querySelector(".hover-overlay-layer");
@@ -86,12 +111,12 @@ preloadAssets(artData);
       const angle = (360 / total) * i + 22.5;
       const snappedAngle = (Math.round(angle / 45) * 45) % 360;
       const directionImg = `${GITHUB_ASSETS}${snappedAngle}n.png`;
-      const variation = (Math.random() * (variationVar * 2)) - variationVar; 
+      const variation = Math.random() * (variationVar * 2) - variationVar;
       const radius = baseRadius + variation;
 
       const opt = document.createElement("div");
       opt.classList.add("option");
-      
+
       const text = document.createElement("span");
       text.textContent = art.title;
       opt.appendChild(text);
@@ -115,26 +140,25 @@ preloadAssets(artData);
       // Click for Details
       opt.addEventListener("click", () => {
         document.getElementById("detail-title").textContent = art.title;
-        document.getElementById("detail-image").src = GITHUB_ASSETS + art.filename;
+        document.getElementById("detail-image").src =
+          GITHUB_ASSETS + art.filename;
         document.getElementById("detail-description").textContent = art.desc;
-        document.getElementById("detail-year").textContent = `Created: ${art.year} | `;
-        document.getElementById("detail-medium").textContent = art.medium;
 
         document.getElementById("main-page").classList.remove("active");
         document.getElementById("art-detail-page").classList.add("active");
       });
 
       opt.addEventListener("touchstart", (e) => {
-    // Prevent the "double tap" requirement on some phones
-    // e.preventDefault(); 
-    
-    updateCenterImage(baseAngle); // Instantly change the eye/arrow
-    midLayer.classList.add("active");
-    overlayLayer.classList.add("active");
-});
+        // Prevent the "double tap" requirement on some phones
+        // e.preventDefault();
+
+        updateCenterImage(baseAngle); // Instantly change the eye/arrow
+        midLayer.classList.add("active");
+        overlayLayer.classList.add("active");
+      });
 
       if (container) container.appendChild(opt);
-      
+
       // Apply floating to the text span
       applyFloating(text, 1, 3, 1, 3, 0.01, 0.02, 2, 4, false);
     });
@@ -153,10 +177,10 @@ preloadAssets(artData);
   loadGallery();
   if (center) applyFloating(center, 1, 2, 1, 2, 0.01, 0.02, 4, 8, true);
   document.fonts.ready.then(() => {
-    const wrapper = document.getElementById('portfolio-wrapper');
-    const loader = document.getElementById('loading-screen');
-    
-    wrapper.style.opacity = '1';
-    if (loader) loader.style.display = 'none';
-});
+    const wrapper = document.getElementById("portfolio-wrapper");
+    const loader = document.getElementById("loading-screen");
+
+    wrapper.style.opacity = "1";
+    if (loader) loader.style.display = "none";
+  });
 });

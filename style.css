@@ -1,6 +1,7 @@
 @font-face {
   font-family: "CustomFont";
-  src: url("https://cdn.jsdelivr.net/gh/terricored/Portfolio@main/assets/testfont2.ttf") format("truetype");
+  src: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/testfont2.ttf")
+    format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -20,21 +21,22 @@ body {
   color: white;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   -webkit-text-size-adjust: 100%;
-  overflow: clip; 
+  overflow: clip;
   overflow-x: clip;
   overflow-y: clip;
   position: fixed;
 }
 
 .container {
-  position: absolute; 
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -53,13 +55,14 @@ html, body {
   height: 300px;
   transform: translate(-50%, -50%);
   z-index: 2;
-  pointer-events: none
+  pointer-events: none;
 }
 
 .base-layer {
   position: absolute;
   inset: 0;
-  background: url('https://cdn.jsdelivr.net/gh/terricored/Portfolio@main/assets/default_centern.png') center/contain no-repeat;
+  background: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/default_centern.png")
+    center/contain no-repeat;
   z-index: 1;
 }
 
@@ -81,13 +84,16 @@ html, body {
   transition: opacity 0.2s ease; /* Faster transition for direction changes */
 }
 
-.hover-mid-layer.active, 
+.hover-mid-layer.active,
 .hover-overlay-layer.active {
   opacity: 1;
 }
 
-.center-circle, .base-layer, .hover-mid-layer, .hover-overlay-layer {
-    pointer-events: none !important; 
+.center-circle,
+.base-layer,
+.hover-mid-layer,
+.hover-overlay-layer {
+  pointer-events: none !important;
 }
 
 .option {
@@ -98,11 +104,11 @@ html, body {
   color: white;
   transition: color 0.3s;
   z-index: 3;
-  user-select: none; 
+  user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  -webkit-touch-callout: none; 
+  -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   pointer-events: auto !important;
@@ -120,18 +126,28 @@ html, body {
 }
 
 @keyframes jitter {
-  0% { transform: translate(0, 0) scale(0.8); }
-  25% { transform: translate(1px, -1px) rotate(1deg) scale(0.8); }
-  50% { transform: translate(-1px, 1px) rotate(-1deg) scale(0.8); }
-  75% { transform: translate(1px, 1px) rotate(0deg) scale(0.8); }
-  100% { transform: translate(0, 0) scale(0.8); }
+  0% {
+    transform: translate(0, 0) scale(0.8);
+  }
+  25% {
+    transform: translate(1px, -1px) rotate(1deg) scale(0.8);
+  }
+  50% {
+    transform: translate(-1px, 1px) rotate(-1deg) scale(0.8);
+  }
+  75% {
+    transform: translate(1px, 1px) rotate(0deg) scale(0.8);
+  }
+  100% {
+    transform: translate(0, 0) scale(0.8);
+  }
 }
 
 .option:hover span {
-  display: inline-block !important; 
+  display: inline-block !important;
   animation: jitter 0.2s infinite !important;
   color: grey !important;
-  position: relative; 
+  position: relative;
   z-index: 1000;
 }
 
@@ -141,7 +157,7 @@ html, body {
 }
 
 .page {
-  display: none; 
+  display: none;
   width: 100%;
   height: 100vh;
   opacity: 0;
@@ -200,19 +216,15 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #111;
-  padding: 20px;
-  border-radius: 12px;
-  min-height: 450px;
-  box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
 }
 
 .art-visual img {
   max-width: 100%;
   max-height: 75vh;
   object-fit: contain;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
-  border: 1px solid #333;
+  border: none;
+  outline: none;
+  display: block;
 }
 
 .art-info {
@@ -224,18 +236,20 @@ html, body {
   font-size: 4rem; /* Bumped up from 3.5rem */
   margin: 0 0 15px 0;
   color: white;
-  border-bottom: 4px solid red; /* Thicker line for a bolder look */
   display: inline-block;
   line-height: 1.1;
 }
 
 #detail-description {
-  line-height: 1.8;
-  font-size: 1.4rem; /* Increased from 1.1rem */
+  line-height: 1;
+  font-size: 1.9rem; /* Increased from 1.1rem */
   color: #ddd; /* Slightly brighter for better contrast on black */
   margin-bottom: 30px;
   max-width: 600px; /* Slightly wider to accommodate larger text */
   font-weight: 300; /* Light weight looks elegant for descriptions */
+  white-space: pre-line;
+  display: block;
+  unicode-bidi: isolate;
 }
 
 .art-meta {
@@ -247,7 +261,8 @@ html, body {
   font-weight: bold;
 }
 
-#detail-year, #detail-medium {
+#detail-year,
+#detail-medium {
   color: white; /* Contrast the values against the red labels */
   margin-right: 10px;
 }
@@ -267,7 +282,7 @@ html, body {
     padding-top: 80px;
     gap: 30px;
   }
-  
+
   .art-info {
     text-align: center;
     padding-bottom: 50px;
@@ -284,9 +299,9 @@ html, body {
     height: 200px;
   }
 
-  .center-circle, 
-  .base-layer, 
-  .hover-mid-layer, 
+  .center-circle,
+  .base-layer,
+  .hover-mid-layer,
   .hover-overlay-layer {
     width: 180px;
     height: 180px;
@@ -298,11 +313,11 @@ html, body {
 }
 
 #portfolio-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 1;
-    overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
 }
