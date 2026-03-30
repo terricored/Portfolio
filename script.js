@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const artPieces = artData;
-    const baseRadius = 240; // Increased radius to accommodate doubled font size
+    const baseRadius = window.innerWidth < 600 ? 140 : 340;
 
 
     const midLayer = document.querySelector(".hover-mid-layer");
@@ -99,6 +99,15 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("main-page").classList.remove("active");
         document.getElementById("art-detail-page").classList.add("active");
       });
+
+      opt.addEventListener("touchstart", (e) => {
+    // Prevent the "double tap" requirement on some phones
+    // e.preventDefault(); 
+    
+    updateCenterImage(baseAngle); // Instantly change the eye/arrow
+    midLayer.classList.add("active");
+    overlayLayer.classList.add("active");
+});
 
       if (container) container.appendChild(opt);
       
