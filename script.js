@@ -1,20 +1,10 @@
 const container = document.querySelector(".container");
 const center = document.querySelector(".center-circle");
-
 const floatStyle = document.createElement("style");
 document.head.appendChild(floatStyle);
 
-const options = [
-  "Option10",
-  "Option2",
-  "Option3",
-  "Option4",
-  "Option5",
-  "Option6",
-  "Option7",
-  "Option8"
-];
-const radius = 160;
+const GITHUB_RAW_PREFIX = "https://raw.githubusercontent.com/terricored/Portfolio/main/assets/";
+const JSON_URL = "https://raw.githubusercontent.com/terricored/Portfolio/main/gallery.json";
 
 /**
  * Returns a random number in [-max,-min] or [min,max]
@@ -78,85 +68,54 @@ function applyFloating(
   el.style.animation = `${animationName} ${duration} ease-in-out ${delay} infinite`;
 }
 
-options.forEach((name, i) => {
-  const opt = document.createElement("div");
-  opt.classList.add("option");
+async function loadGallery() {
+  try {
+    const response = await fetch(JSON_URL);
+    const artPieces = await response.json();
+    const radius = 160;
 
-  const text = document.createElement("span"); // for future float/pulse
-  text.textContent = name;
-  opt.appendChild(text);
+    artPieces.forEach((art, i) => {
+      const fullImgUrl = GITHUB_RAW_PREFIX + art.filename;
 
-  const total = options.length;
-  const angle = (360 / total) * i;
+      // Create the element
+      const opt = document.createElement("div");
+      opt.classList.add("option");
+      const text = document.createElement("span");
+      text.textContent = art.title;
+      opt.appendChild(text);
 
-  // FIX: center the option by its own center
-  opt.style.transform = `
-    translate(-50%, -50%)    /*move top-left to element center */
-    rotate(${angle}deg)
-    translate(${radius}px)
-    rotate(${-angle}deg)
-  `;
+      // Position logic (Same as your old version)
+      const total = artPieces.length;
+      const angle = (360 / total) * i;
+      opt.style.transform = `translate(-50%, -50%) rotate(${angle}deg) translate(${radius}px) rotate(${-angle}deg)`;
 
-  opt.addEventListener("mouseenter", () => {
-    center.textContent = name;
-  });
-  opt.addEventListener("mouseleave", () => {
-    center.textContent = "";
-  });
+      // Events
+      opt.addEventListener("mouseenter", () => { center.textContent = art.title; });
+      opt.addEventListener("mouseleave", () => { center.textContent = ""; });
+      
+      opt.addEventListener("click", () => {
+        document.getElementById("detail-title").textContent = art.title;
+        document.getElementById("detail-image").src = fullImgUrl;
+        document.getElementById("detail-description").textContent = art.desc;
+        document.getElementById("detail-year").textContent = `Created: ${art.year} | `;
+        document.getElementById("detail-medium").textContent = art.medium;
 
-  container.appendChild(opt);
+        document.getElementById("main-page").classList.remove("active");
+        document.getElementById("art-detail-page").classList.add("active");
+      });
 
-  const span = opt.querySelector("span");
-  applyFloating(span, 1, 3, 1, 3, 0.01, 0.02, 2, 4, false);
-  opt.addEventListener("click", () => {
-    // 1. Hide Main Page, Show Detail Page
-    document.getElementById("main-page").classList.remove("active");
-    document.getElementById("art-detail-page").classList.add("active");
+      container.appendChild(opt);
+      applyFloating(text, 1, 3, 1, 3, 0.01, 0.02, 2, 4, false);
+    });
+  } catch (e) {
+    console.error("Gallery failed to load", e);
+  }
+}
 
-    // 2. Update the Detail Page text based on what was clicked
-    document.getElementById("detail-title").textContent = name;
-  });
-  opt.addEventListener("click", () => {
-    const data = artData[name]; // Look up the info
-
-    if (data) {
-      // Fill the page with the data
-      document.getElementById("detail-title").textContent = name;
-      document.getElementById("detail-image").src = data.img;
-      document.getElementById("detail-description").textContent = data.desc;
-      document.getElementById(
-        "detail-year"
-      ).textContent = `Created: ${data.year} | `;
-      document.getElementById("detail-medium").textContent = data.medium;
-
-      // Switch pages
-      document.getElementById("main-page").classList.remove("active");
-      document.getElementById("art-detail-page").classList.add("active");
-    }
-  });
-});
-
+loadGallery();
 applyFloating(center, 1, 3, 1, 3, 0.01, 0.02, 2, 4, true);
 
 document.getElementById("back-button").addEventListener("click", () => {
   document.getElementById("art-detail-page").classList.remove("active");
   document.getElementById("main-page").classList.add("active");
 });
-
-const artData = {
-  Option10: {
-    img: "https://raw.githubusercontent.com/terricored/Portfolio/main/assets/pic%20003.jpg?raw=true",
-    desc:
-      "A profound exploration of color and shadow, painted during the late summer.",
-    year: "2023",
-    medium: "Oil on Canvas"
-  },
-  Option2: {
-    img: "https://raw.githubusercontent.com/terricored/Portfolio/main/assets/pic%20003.jpg?raw=true",
-    desc:
-      "This piece captures the frantic energy of city life through abstract strokes.",
-    year: "2024",
-    medium: "Acrylic & Ink"
-  }
-  // Add more here following the same pattern...
-};
