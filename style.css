@@ -277,3 +277,10 @@ body {
     font-size: 1.8rem;
   }
 }
+
+#portfolio-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    z-index: 1; /* Ensure it's not behind the background */
+}
