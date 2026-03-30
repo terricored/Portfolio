@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const GITHUB_ASSETS = "https://cdn.jsdelivr.net/gh/terricored/Portfolio@main/assets/";
   const DEFAULT_IMG = `${GITHUB_ASSETS}default_center.png`;
+  const HOVER_IMG = `${GITHUB_ASSETS}hover_center.png`;
 
   /**
    * Returns a random number in [-max,-min] or [min,max]
@@ -54,8 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     artPieces.forEach((art, i) => {
       const total = artPieces.length;
-      const angle = (360 / total) * i;
-      const snappedAngle = (Math.round(angle / 45) * 45) % 360;
+      const angle = (360 / total) * i + 22.5;
+      const snappedAngle = (Math.round((angle - 22.5) / 45) * 45) % 360;
       const directionImg = `${GITHUB_ASSETS}${snappedAngle}.png`;
 
       const opt = document.createElement("div");
@@ -70,11 +71,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Hover Events
       opt.addEventListener("mouseenter", () => {
-        if (center) center.style.backgroundImage = `url('${directionImg}')`;
+        midLayer.style.backgroundImage = `url('${HOVER_IMG}')`;
+        midLayer.classList.add("active");
+        overlayLayer.style.backgroundImage = `url('${directionImg}')`;
+        overlayLayer.classList.add("active");
       });
 
       opt.addEventListener("mouseleave", () => {
-        if (center) center.style.backgroundImage = `url('${DEFAULT_IMG}')`;
+        midLayer.classList.remove("active");
+        overlayLayer.classList.remove("active");
       });
 
       // Click for Details

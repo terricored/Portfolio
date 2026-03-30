@@ -29,19 +29,40 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 140px; /* Slightly larger to balance 3rem text */
-  height: 140px;
-  border-radius: 50%;
+  width: 220px;
+  height: 220px;
   transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  transition: background-image 0.3s ease-in-out;
   z-index: 2;
+}
+
+.base-layer {
+  position: absolute;
+  inset: 0;
+  background: url('https://cdn.jsdelivr.net/gh/terricored/Portfolio@main/assets/default_center.png') center/contain no-repeat;
+  z-index: 1;
+}
+
+.hover-mid-layer {
+  position: absolute;
+  inset: 0;
+  background: center/contain no-repeat;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hover-overlay-layer {
+  position: absolute;
+  inset: 0;
+  background: center/contain no-repeat;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.2s ease; /* Faster transition for direction changes */
+}
+
+.hover-mid-layer.active, 
+.hover-overlay-layer.active {
+  opacity: 1;
 }
 
 .option {
