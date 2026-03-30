@@ -150,20 +150,35 @@ body {
 }
 
 #detail-title {
-  font-size: 3.5rem;
-  margin: 0 0 20px 0;
+  font-size: 4rem; /* Bumped up from 3.5rem */
+  margin: 0 0 15px 0;
   color: white;
-  border-bottom: 3px solid red;
+  border-bottom: 4px solid red; /* Thicker line for a bolder look */
   display: inline-block;
   line-height: 1.1;
 }
 
 #detail-description {
   line-height: 1.8;
-  font-size: 1.2rem;
-  color: #bbb;
+  font-size: 1.4rem; /* Increased from 1.1rem */
+  color: #ddd; /* Slightly brighter for better contrast on black */
   margin-bottom: 30px;
-  max-width: 500px;
+  max-width: 600px; /* Slightly wider to accommodate larger text */
+  font-weight: 300; /* Light weight looks elegant for descriptions */
+}
+
+.art-meta {
+  margin-top: 25px;
+  font-size: 1.1rem; /* Slightly larger labels */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: red;
+  font-weight: bold;
+}
+
+#detail-year, #detail-medium {
+  color: white; /* Contrast the values against the red labels */
+  margin-right: 10px;
 }
 
 .art-meta {
