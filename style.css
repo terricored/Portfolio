@@ -67,6 +67,10 @@ body {
   opacity: 1;
 }
 
+.center-circle, .base-layer, .hover-mid-layer, .hover-overlay-layer {
+    pointer-events: none !important; 
+}
+
 .option {
   position: absolute;
   top: 50%;
