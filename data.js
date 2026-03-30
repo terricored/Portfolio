@@ -1,4 +1,4 @@
-[
+const artData = [
   {
     "title": "Midnight Echo",
     "filename": "test.gif",
@@ -27,4 +27,4 @@
     "year": "2025",
     "medium": "Oil on Canvas"
   }
-]
+];

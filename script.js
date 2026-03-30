@@ -71,10 +71,8 @@ function applyFloating(
   el.style.animation = `${animationName} ${duration} ease-in-out ${delay} infinite`;
 }
 
-async function loadGallery() {
-  try {
-    const response = await fetch(JSON_URL);
-    const artPieces = await response.json();
+function loadGallery() {
+    const artPieces = artData;
     const radius = 160;
 
     center.style.backgroundImage = `url('${DEFAULT_IMG}')`;
@@ -122,10 +120,7 @@ async function loadGallery() {
       container.appendChild(opt);
       applyFloating(text, 1, 3, 1, 3, 0.01, 0.02, 2, 4, false);
     });
-  } catch (e) {
-    console.error("Gallery failed to load", e);
   }
-}
 
 loadGallery();
 applyFloating(center, 1, 3, 1, 3, 0.01, 0.02, 2, 4, true);
