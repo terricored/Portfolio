@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const artPieces = artData;
-    const radius = 240; // Increased radius to accommodate doubled font size
+    const baseRadius = 240; // Increased radius to accommodate doubled font size
 
 
     const midLayer = document.querySelector(".hover-mid-layer");
@@ -62,6 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const angle = (360 / total) * i + 22.5;
       const snappedAngle = (Math.round(angle / 45) * 45) % 360;
       const directionImg = `${GITHUB_ASSETS}${snappedAngle}n.png`;
+      const variation = (Math.random() * 60) - 30; 
+      const radius = baseRadius + variation;
 
       const opt = document.createElement("div");
       opt.classList.add("option");
@@ -116,5 +118,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize
   loadGallery();
-  if (center) applyFloating(center, 1, 3, 1, 3, 0.01, 0.02, 2, 4, true);
+  if (center) applyFloating(center, 1, 2, 1, 2, 0.01, 0.02, 4, 8, true);
 });
