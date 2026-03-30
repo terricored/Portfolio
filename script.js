@@ -3,9 +3,11 @@ const center = document.querySelector(".center-circle");
 const floatStyle = document.createElement("style");
 document.head.appendChild(floatStyle);
 
-const GITHUB_RAW_PREFIX = "https://raw.githubusercontent.com/terricored/Portfolio/main/assets/";
-const JSON_URL = "https://raw.githubusercontent.com/terricored/Portfolio/main/gallery.json";
-const DEFAULT_IMG = `${IMG_PATH}default_center.png`;
+const GITHUB_RAW_PREFIX =
+  "https://raw.githubusercontent.com/terricored/Portfolio/main/assets/";
+const JSON_URL =
+  "https://raw.githubusercontent.com/terricored/Portfolio/main/gallery.json";
+const DEFAULT_IMG = `${GITHUB_RAW_PREFIX}default_center.png`;
 
 /**
  * Returns a random number in [-max,-min] or [min,max]
@@ -81,7 +83,7 @@ async function loadGallery() {
       const total = artPieces.length;
       const angle = (360 / total) * i;
       const snappedAngle = Math.round(angle / 45) * 45;
-      const directionImg = `${IMG_PATH}${snappedAngle}.png`;
+      const directionImg = `${GITHUB_RAW_PREFIX}${snappedAngle}.png`;
 
       // Create the element
       const opt = document.createElement("div");
@@ -95,20 +97,21 @@ async function loadGallery() {
 
       // Events
       opt.addEventListener("mouseenter", () => {
-        center.textContent = art.title;
         center.style.backgroundImage = `url('${directionImg}')`;
       });
 
       opt.addEventListener("mouseleave", () => {
-        center.textContent = "";
         center.style.backgroundImage = `url('${DEFAULT_IMG}')`;
       });
-      
+
       opt.addEventListener("click", () => {
         document.getElementById("detail-title").textContent = art.title;
-        document.getElementById("detail-image").src = fullImgUrl;
+        document.getElementById("detail-image").src =
+          GITHUB_RAW_PREFIX + art.filename;
         document.getElementById("detail-description").textContent = art.desc;
-        document.getElementById("detail-year").textContent = `Created: ${art.year} | `;
+        document.getElementById(
+          "detail-year"
+        ).textContent = `Created: ${art.year} | `;
         document.getElementById("detail-medium").textContent = art.medium;
 
         document.getElementById("main-page").classList.remove("active");
