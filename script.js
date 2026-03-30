@@ -51,6 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const artPieces = artData;
     const radius = 240; // Increased radius to accommodate doubled font size
 
+
+    const midLayer = document.querySelector(".hover-mid-layer");
+    const overlayLayer = document.querySelector(".hover-overlay-layer");
+
     if (center) center.style.backgroundImage = `url('${DEFAULT_IMG}')`;
 
     artPieces.forEach((art, i) => {
