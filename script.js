@@ -82,8 +82,9 @@ async function loadGallery() {
     artPieces.forEach((art, i) => {
       const total = artPieces.length;
       const angle = (360 / total) * i;
-      const snappedAngle = Math.round(angle / 45) * 45;
+      const snappedAngle = (Math.round(angle / 45) * 45) % 360;
       const directionImg = `${GITHUB_RAW_PREFIX}${snappedAngle}.png`;
+      console.log("Item:", art.title, "Angle:", angle, "File:", directionImg);
 
       // Create the element
       const opt = document.createElement("div");
