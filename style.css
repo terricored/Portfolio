@@ -82,6 +82,7 @@ body {
   -webkit-touch-callout: none; 
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  pointer-events: auto !important;
 }
 
 .option span {
