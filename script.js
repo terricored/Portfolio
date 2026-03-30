@@ -8,6 +8,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const DEFAULT_IMG = `${GITHUB_ASSETS}default_centern.png`;
   const HOVER_IMG = `${GITHUB_ASSETS}hover_centern.png`;
 
+  function preloadAssets(artPieces) {
+    const imagesToPreload = [
+        'https://cdn.jsdelivr.net/gh/terricored/Portfolio@main/assets/default_centern.png'
+    ];
+
+    // Add all art-specific images from your data
+    artPieces.forEach(art => {
+        // Preload the center hover images (0n.png, 1n.png, etc)
+        imagesToPreload.push(`https://cdn.jsdelivr.net/gh/terricored/Portfolio@main/assets/${art.id}n.png`);
+        // Preload the main gallery images if they are different
+        if (art.image) imagesToPreload.push(art.image);
+    });
+
+    imagesToPreload.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+    
+    console.log("Preloading started for " + imagesToPreload.length + " assets.");
+}
+
+preloadAssets(artData);
+
   /**
    * Returns a random number in [-max,-min] or [min,max]
    */
@@ -129,4 +152,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize
   loadGallery();
   if (center) applyFloating(center, 1, 2, 1, 2, 0.01, 0.02, 4, 8, true);
+  document.fonts.ready.then(() => {
+    const wrapper = document.getElementById('portfolio-wrapper');
+    const loader = document.getElementById('loading-screen');
+    
+    wrapper.style.opacity = '1';
+    if (loader) loader.style.display = 'none';
+});
 });
