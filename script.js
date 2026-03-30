@@ -5,6 +5,7 @@ document.head.appendChild(floatStyle);
 
 const GITHUB_RAW_PREFIX = "https://raw.githubusercontent.com/terricored/Portfolio/main/assets/";
 const JSON_URL = "https://raw.githubusercontent.com/terricored/Portfolio/main/gallery.json";
+const DEFAULT_IMG = `${IMG_PATH}default_center.png`;
 
 /**
  * Returns a random number in [-max,-min] or [min,max]
@@ -74,8 +75,13 @@ async function loadGallery() {
     const artPieces = await response.json();
     const radius = 160;
 
+    center.style.backgroundImage = `url('${DEFAULT_IMG}')`;
+
     artPieces.forEach((art, i) => {
-      const fullImgUrl = GITHUB_RAW_PREFIX + art.filename;
+      const total = artPieces.length;
+      const angle = (360 / total) * i;
+      const snappedAngle = Math.round(angle / 45) * 45;
+      const directionImg = `${IMG_PATH}${snappedAngle}.png`;
 
       // Create the element
       const opt = document.createElement("div");
@@ -85,13 +91,18 @@ async function loadGallery() {
       opt.appendChild(text);
 
       // Position logic (Same as your old version)
-      const total = artPieces.length;
-      const angle = (360 / total) * i;
       opt.style.transform = `translate(-50%, -50%) rotate(${angle}deg) translate(${radius}px) rotate(${-angle}deg)`;
 
       // Events
-      opt.addEventListener("mouseenter", () => { center.textContent = art.title; });
-      opt.addEventListener("mouseleave", () => { center.textContent = ""; });
+      opt.addEventListener("mouseenter", () => {
+        center.textContent = art.title;
+        center.style.backgroundImage = `url('${directionImg}')`;
+      });
+
+      opt.addEventListener("mouseleave", () => {
+        center.textContent = "";
+        center.style.backgroundImage = `url('${DEFAULT_IMG}')`;
+      });
       
       opt.addEventListener("click", () => {
         document.getElementById("detail-title").textContent = art.title;

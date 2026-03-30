@@ -1,6 +1,5 @@
 [
   {
-    "id": "Option10",
     "title": "Midnight Echo",
     "filename": "test.gif",
     "desc": "An abstract representation of sound in the dark.",
@@ -8,7 +7,6 @@
     "medium": "Digital Animation"
   },
   {
-    "id": "Option2",
     "title": "Solar Flare",
     "filename": "test.jpg",
     "desc": "Capturing the intensity of a dying star.",
