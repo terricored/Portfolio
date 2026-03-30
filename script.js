@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const artPieces = artData;
     const baseRadius = window.innerWidth < 600 ? 140 : 340;
+    const variationVar = window.innerWidth < 600 ? 15 : 30;
 
 
     const midLayer = document.querySelector(".hover-mid-layer");
@@ -62,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const angle = (360 / total) * i + 22.5;
       const snappedAngle = (Math.round(angle / 45) * 45) % 360;
       const directionImg = `${GITHUB_ASSETS}${snappedAngle}n.png`;
-      const variation = (Math.random() * 60) - 30; 
+      const variation = (Math.random() * (variationVar * 2)) - variationVar; 
       const radius = baseRadius + variation;
 
       const opt = document.createElement("div");
