@@ -146,6 +146,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.getElementById("main-page").classList.remove("active");
         document.getElementById("art-detail-page").classList.add("active");
+        const detailPage = document.getElementById('art-detail-page');
+        detailPage.scrollTo(0, 0);
       });
 
       opt.addEventListener("touchstart", (e) => {
