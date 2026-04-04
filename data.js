@@ -18,7 +18,11 @@ const artData = [
     medium: "папір, гелева ручка",
     type: "image-stack",
     images: [
-      { src: "urodiki1@0,33x.png", overlap: 0 }
+      { src: "ur1.png", overlap: 0 },
+      { src: "ur2.png", overlap: 0 },
+      { src: "ur3.png", overlap: 0 },
+      { src: "ur4.png", overlap: 0 },
+      { src: "ur5.png", overlap: 0 }
     ]
   },
   {
