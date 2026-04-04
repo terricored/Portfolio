@@ -2,18 +2,25 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Art Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body style="background: black; overflow-x: hidden;">
+
+    <div id="loading-screen" 
+         style="position: fixed; inset: 0; display: flex; justify-content: center; align-items: center; background: black; color: white; font-family: sans-serif; z-index: 10000;">
+        LOADING...
+    </div>
+
     <div id="portfolio-wrapper" style="opacity: 0; transition: opacity 0.8s ease;">
         
         <div id="main-page" class="page active">
             <div class="container">
                 <div class="center-circle">
                     <div class="base-layer"></div>
-                    <div class="hover-mid-layer"></div> 
+                    <div class="hover-mid-layer"></div>
                     <div class="hover-overlay-layer"></div>
                 </div>
             </div>
@@ -21,27 +28,10 @@
 
         <div id="art-detail-page" class="page">
             <button id="back-button">← назад</button>
-
-            <div class="split-container">
-                <div class="art-visual">
-                    <img id="detail-image" src="" alt="Painting">
-                </div>
-
-                <div class="art-info">
-                    <h1 id="detail-title"></h1>
-                    <p id="detail-description"></p>
-                    <div class="art-meta">
-                        <span id="detail-year"></span>
-                        <span id="detail-medium"></span>
-                    </div>
-                </div>
-            </div>
+            
+            <div id="detail-content-wrapper" class="detail-content-wrapper"></div>
         </div>
 
-    </div> 
-
-    <div id="loading-screen" style="position: fixed; inset: 0; display: flex; justify-content: center; align-items: center; background: black; color: white; font-family: sans-serif; z-index: 9999;">
-        LOADING...
     </div>
 
     <script src="data.js"></script>

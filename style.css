@@ -1,7 +1,6 @@
 @font-face {
   font-family: "CustomFont";
-  src: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/testfont2.ttf")
-    format("truetype");
+  src: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/testfont2.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -19,6 +18,15 @@ body {
   -webkit-text-size-adjust: 100%;
   overflow: hidden;
   touch-action: pan-y;
+}
+
+img, video { max-width: 100%; height: auto; display: block; }
+
+#portfolio-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
 }
 
 .container {
@@ -42,20 +50,21 @@ body {
   transform: translate(-50%, -50%);
   z-index: 2;
   pointer-events: none;
+  display: block;
 }
 
 .base-layer {
   position: absolute;
   inset: 0;
-  background: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/default_centern.png")
-    center/contain no-repeat;
+  background: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/default_centern.png") center/contain no-repeat;
   z-index: 1;
+  background-size: contain;
 }
 
 .hover-mid-layer {
   position: absolute;
   inset: 0;
-  background: center/contain no-repeat;
+  background: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hover_centern.png") center/contain no-repeat;
   z-index: 2;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -67,7 +76,7 @@ body {
   background: center/contain no-repeat;
   z-index: 3;
   opacity: 0;
-  transition: opacity 0.2s ease; /* Faster transition for direction changes */
+  transition: opacity 0.2s ease;
 }
 
 .hover-mid-layer.active,
@@ -97,12 +106,13 @@ body {
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  overflow: visible !important;
   pointer-events: auto !important;
 }
 
 .option span {
   font-family: "CustomFont", sans-serif;
-  font-size: 3rem; /* Your requested doubled size */
+  font-size: 3rem;
   letter-spacing: 1px;
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
@@ -115,15 +125,19 @@ body {
   0% {
     transform: translate(0, 0) scale(0.8);
   }
+
   25% {
     transform: translate(1px, -1px) rotate(1deg) scale(0.8);
   }
+
   50% {
     transform: translate(-1px, 1px) rotate(-1deg) scale(0.8);
   }
+
   75% {
     transform: translate(1px, 1px) rotate(0deg) scale(0.8);
   }
+
   100% {
     transform: translate(0, 0) scale(0.8);
   }
@@ -135,11 +149,6 @@ body {
   color: grey !important;
   position: relative;
   z-index: 1000;
-}
-
-.option {
-  overflow: visible !important;
-  pointer-events: auto !important;
 }
 
 .page {
@@ -198,8 +207,8 @@ body {
   width: 95%;
   max-width: 1300px;
   gap: 60px;
-  align-items: flex-start; /* Aligns text and image to the top */
-  padding: 120px 0 60px 0; /* Padding-top ensures space for Back button */
+  align-items: flex-start;
+  padding: 120px 0 60px 0;
   margin: 0 auto;
 }
 
@@ -226,7 +235,8 @@ body {
 }
 
 #detail-title {
-  font-size: 4rem; /* Bumped up from 3.5rem */
+  font-size: 4rem;
+  /* Bumped up from 3.5rem */
   margin: 0 0 15px 0;
   color: white;
   display: inline-block;
@@ -235,11 +245,15 @@ body {
 
 #detail-description {
   line-height: 1;
-  font-size: 1.9rem; /* Increased from 1.1rem */
-  color: #ddd; /* Slightly brighter for better contrast on black */
+  font-size: 1.9rem;
+  /* Increased from 1.1rem */
+  color: #ddd;
+  /* Slightly brighter for better contrast on black */
   margin-bottom: 30px;
-  max-width: 600px; /* Slightly wider to accommodate larger text */
-  font-weight: 300; /* Light weight looks elegant for descriptions */
+  max-width: 600px;
+  /* Slightly wider to accommodate larger text */
+  font-weight: 300;
+  /* Light weight looks elegant for descriptions */
   white-space: pre-line;
   display: block;
   unicode-bidi: isolate;
@@ -247,7 +261,8 @@ body {
 
 #detail-year,
 #detail-medium {
-  color: white; /* Contrast the values against the red labels */
+  color: white;
+  /* Contrast the values against the red labels */
   margin-right: 10px;
 }
 
@@ -273,12 +288,12 @@ body {
     gap: 40px;
   }
 
-.art-visual {
-     width: 100%;
-     min-height: auto;
-     display: flex;
-     justify-content: center;
-   }
+  .art-visual {
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+  }
 
   .art-info {
     padding-bottom: 50px;
@@ -293,7 +308,8 @@ body {
   }
 
   .art-visual img {
-    max-height: 50vh; /* Prevents image from pushing text off-screen */
+    max-height: 50vh;
+    /* Prevents image from pushing text off-screen */
   }
 }
 
@@ -316,9 +332,374 @@ body {
   }
 }
 
-#portfolio-wrapper {
+.detail-content-wrapper {
+  padding: 80px 0 40px 0;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s ease-in-out;
+  box-sizing: border-box;
+}
+
+.art-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.art-visual img {
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+}
+
+.art-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.art-info h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.art-info p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 60ch;
+}
+
+.detail-content-wrapper.layout-standard {
+  align-items: center;
+  text-align: center;
+}
+
+.detail-content-wrapper.layout-standard .art-info {
+  align-items: center;
+}
+
+.detail-content-wrapper.layout-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .detail-content-wrapper {
+    padding-top: 100px;
+  }
+
+  .detail-content-wrapper.layout-split {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .detail-content-wrapper.layout-split .art-info {
+    align-items: center;
+  }
+}
+
+.stack-columns {
+  display: grid;
+  grid-template-columns: minmax(auto, 900px) 450px;
+  grid-template-areas: "visual info";
+  gap: 40px;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  padding-bottom: 100px;
+  gap: 80px;
+}
+
+.stack-visual-col {
+  grid-area: visual;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.stack-info-col {
+  grid-area: info;
+  position: sticky;
+  top: 80px;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.stack-frame {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  z-index: 5;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stack-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 900px;
+}
+
+@media (max-width: 900px) {
+  .stack-columns {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "info"
+      "visual";
+    gap: 30px;
+    padding-top: 80px;
+  }
+
+  .stack-info-col {
+    position: relative;
+    top: 0;
+    text-align: center;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .stack-frame img {
+    width: 100%;
+  }
+}
+
+/* --- CHESS LAYOUT SYSTEM --- */
+.layout-chess {
+  width: 100%;
+  padding: 80px 10%;
+  box-sizing: border-box;
+  /* Use your font, but keep sans-serif as a fallback for English */
+  font-family: "CustomFont", sans-serif;
+}
+
+.chess-header {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.chess-header h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.chess-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-bottom: 150px;
+  /* CRITICAL: Aligns everything to the very top edge */
+  align-items: start;
+}
+
+/* Alternating Flip */
+.chess-row:nth-child(even) {
+  direction: rtl;
+}
+
+.chess-row:nth-child(even) .chess-info-box {
+  direction: ltr;
+}
+
+.chess-info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.chess-info-box h2 {
+  font-family: "CustomFont", sans-serif;
+  font-size: 2.5rem;
+  margin: 0;
+  /* Removes top gap */
+  line-height: 1;
+  /* Keeps it tight to the top */
+  color: white;
+}
+
+.chess-info-box p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #ccc;
+  margin: 0;
+}
+
+.chess-visual-box {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Video & Image Containers */
+.chess-visual-box img,
+.video-wrapper {
+  width: 100%;
+  border: none;
+  display: block;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 Aspect Ratio */
+  height: 0;
+  background: #111;
+  /* Shows while video loads */
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Mobile Rules */
+@media (max-width: 900px) {
+  .chess-row {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .chess-row:nth-child(even) {
+    direction: ltr;
+  }
+
+  .chess-info-box {
+    order: 1;
+    text-align: center;
+  }
+
+  .chess-visual-box {
+    order: 2;
+    width: 100%;
+  }
+}
+
+.contact-page-wrapper {
+  display: none;
+  gap: 100px;
+  padding: 120px 10% 60px 10%;
+  align-items: start;
+  justify-content: center;
+  font-family: "CustomFont", sans-serif;
+  transition: opacity 0.4s ease;
+}
+
+.contact-page-wrapper.active {
+  display: flex;
+  opacity: 1;
+}
+
+.contact-visual img {
+  width: 300px;
+  height: auto;
+  filter: none
+    /*grayscale(1) contrast(1.2)*/
+  ;
+}
+
+.contact-content h1 {
+  font-size: 4rem;
+  margin: 0 0 20px 0;
+  color: red;
+}
+
+.contact-list {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.contact-item {
+  border-left: 2px solid #222;
+  padding-left: 20px;
+  transition: border-color 0.3s;
+}
+
+.contact-item:hover {
+  border-color: red;
+}
+
+.contact-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.contact-value {
+  display: block;
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* Red selection highlight */
+.contact-value::selection {
+  background: red;
+  color: black;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-actions button,
+.contact-actions a {
+  background: none;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 8px 20px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.contact-actions button:hover,
+.contact-actions a:hover {
+  background: white;
+  color: black;
+  border-color: white;
+}
+
+@media (max-width: 900px) {
+  .contact-page-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .contact-item {
+    border-left: none;
+    border-bottom: 1px solid #222;
+    padding: 0 0 20px 0;
+  }
+
+  .contact-actions {
+    justify-content: center;
+  }
 }
