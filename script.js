@@ -86,11 +86,11 @@ function initSplitLayout(container, art) {
     </div>
     <div class="art-info">
       <h1>${art.title}</h1>
-      <p>${art.desc}</p>
       <div class="art-meta">
-        <span>${art.year || ''}</span>
         <span>${art.medium || ''}</span>
+        <span>${art.year || ''}</span>
       </div>
+      <p>${art.desc}</p>
     </div>
   `;
 }
@@ -99,7 +99,13 @@ function initFullLayout(container, art) {
   container.classList.add("layout-standard");
 
   container.innerHTML = `
-    <h1>${art.title}</h1>
+    <div class="art-info">
+      <h1>${art.title}</h1>
+      <div class="art-meta">
+        <span>${art.medium || ''}</span>
+        <span>${art.year || ''}</span>
+      </div>
+    </div>
     <div class="art-visual">
       <img src="${GITHUB_ASSETS}${art.filename}" alt="${art.title}">
     </div>
@@ -113,7 +119,13 @@ function initVideoLayout(container, art) {
   container.classList.add("layout-standard");
 
   container.innerHTML = `
-    <h1>${art.title}</h1>
+    <div class="art-info">
+      <h1>${art.title}</h1>
+      <div class="art-meta">
+        <span>${art.medium || ''}</span>
+        <span>${art.year || ''}</span>
+      </div>
+    </div>
     <div class="video-container">
       <iframe src="${art.videoUrl}" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -141,12 +153,12 @@ function initStackLayout(container, art) {
 
       <div class="stack-info-col">
         <h1>${art.title}</h1>
+        <div class="art-meta">
+          <span>${art.medium || ''}</span>
+          <span>${art.year || ''}</span>
+        </div>
         <div class="stack-description">
           <p>${art.desc}</p>
-          <div class="art-meta">
-            <span>${art.year || ''}</span>
-            <span>${art.medium || ''}</span>
-          </div>
         </div>
       </div>
     </div>
@@ -157,13 +169,9 @@ function initChessLayout(container, art) {
   container.classList.add("layout-chess");
 
   const rowsHTML = art.rows.map((row) => {
-    // Generate HTML for all media in this specific row
     const mediaHTML = row.media.map(item => {
       if (item.type === "video") {
-        return `
-          <div class="video-wrapper">
-            <iframe src="${item.url}" frameborder="0" allowfullscreen></iframe>
-          </div>`;
+        return `<div class="video-wrapper"><iframe src="${item.url}" frameborder="0" allowfullscreen></iframe></div>`;
       }
       return `<img src="${GITHUB_ASSETS}${item.src}" alt="${row.title}">`;
     }).join('');
@@ -172,6 +180,10 @@ function initChessLayout(container, art) {
       <section class="chess-row">
         <div class="chess-info-box">
           <h2>${row.title}</h2>
+          <div class="art-meta">
+            <span>${row.medium || ''}</span>
+            <span>${row.year || ''}</span>
+          </div>
           <p>${row.desc}</p>
         </div>
         <div class="chess-visual-box">
@@ -184,6 +196,10 @@ function initChessLayout(container, art) {
   container.innerHTML = `
     <div class="chess-header">
       <h1>${art.title}</h1>
+      <div class="art-meta">
+        <span>${art.medium || ''}</span>
+        <span>${art.year || ''}</span>
+      </div>
       <p class="main-desc">${art.desc}</p>
     </div>
     <div class="chess-body">
@@ -197,28 +213,38 @@ function handleEmail(email) {
 }
 
 function initContactLayout(container, data) {
-  // Construct the full paths once at the start
   const defaultPath = `${GITHUB_ASSETS}${data.reactionImg}`;
   const glitchPath = `${GITHUB_ASSETS}${data.glitchGif}`;
 
+  const iconCopy = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
+  const iconOpen = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`;
+  const iconCheck = `<svg viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+
   const linksHTML = data.links.map(link => {
     const isEmail = link.url.startsWith('mailto:');
-
-    // Use the helper for emails, standard <a> for others
     const openAction = isEmail
-      ? `<button class="btn-open" onclick="handleEmail('${link.value}')">OPEN</button>`
-      : `<a href="${link.url}" target="_blank" class="btn-open">OPEN</a>`;
+      ? `<button class="contact-icon-btn btn-open" onclick="handleEmail('${link.value}')">${iconOpen}</button>`
+      : `<a href="${link.url}" target="_blank" class="contact-icon-btn btn-open">${iconOpen}</a>`;
 
     return `
-      <div class="contact-item">
-        <span class="contact-label">${link.label}</span>
-        <span class="contact-value">${link.value}</span>
-        <div class="contact-actions">
-          <button class="btn-copy" data-copy="${link.value}">COPY</button>
-          ${openAction}
+    <div class="contact-item">
+      <div class="contact-left-group">
+        ${openAction}
+        <div class="contact-text-group btn-copy" data-copy="${link.value}">
+          <span class="contact-value">${link.value}</span>
+          <div class="art-meta">
+            <span>${link.label}</span>
+            <span>${link.year || ''}</span>
+          </div>
         </div>
       </div>
-    `;
+      <div class="contact-actions">
+        <button class="contact-icon-btn btn-copy" data-copy="${link.value}">
+          <span class="icon-state">${iconCopy}</span>
+        </button>
+      </div>
+    </div>
+  `;
   }).join('');
 
   container.innerHTML = `
@@ -235,35 +261,35 @@ function initContactLayout(container, data) {
   `;
 
   const statusImg = document.getElementById('contact-status-img');
-
   const triggerGlitch = () => {
     statusImg.src = glitchPath;
-    setTimeout(() => {
-      statusImg.src = defaultPath;
-    }, 1200);
+    setTimeout(() => { statusImg.src = defaultPath; }, 1200);
   };
 
-  container.querySelectorAll('.btn-copy').forEach(btn => {
-    btn.addEventListener('click', () => {
-      navigator.clipboard.writeText(btn.dataset.copy);
-      const originalText = btn.innerText;
-      btn.innerText = "DONE";
+  container.querySelectorAll('.btn-copy').forEach(el => {
+    el.addEventListener('click', () => {
+      navigator.clipboard.writeText(el.dataset.copy);
       triggerGlitch();
-      setTimeout(() => { btn.innerText = originalText; }, 1500);
+
+      const iconContainer = el.querySelector('.icon-state');
+      
+      if (iconContainer) {
+        const originalIcon = iconContainer.innerHTML;
+        iconContainer.innerHTML = iconCheck;
+        el.classList.add('copy-success');
+        setTimeout(() => {
+          iconContainer.innerHTML = originalIcon;
+          el.classList.remove('copy-success');
+        }, 1500);
+      } else {
+        el.classList.add('text-copy-success');
+        setTimeout(() => el.classList.remove('text-copy-success'), 500);
+      }
     });
   });
 
-  container.addEventListener('contextmenu', (e) => {
-    if (e.target.classList.contains('contact-value')) triggerGlitch();
-  });
-
-  container.addEventListener('copy', triggerGlitch);
-
   const wrapper = container.querySelector('.contact-page-wrapper');
-
-  requestAnimationFrame(() => {
-    wrapper.classList.add('active');
-  });
+  requestAnimationFrame(() => { wrapper.classList.add('active'); });
 }
 
 function showArtDetails(art) {
