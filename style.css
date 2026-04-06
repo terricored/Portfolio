@@ -14,6 +14,22 @@
   font-display: swap;
 }
 
+:root {
+  --fs-pages: 3rem;
+  --fs-pages-mobile: 1.8rem;
+  --fs-back-btn: 1rem;
+  --fs-art-title: clamp(2rem, 5vw, 3.5rem);
+  --fs-small-text: 1.1rem;
+  --fs-big-text: 2.8rem;
+  --fs-title: 4rem;
+  --fs-title-chess: 2.5rem;
+  --fs-text-chess: 1.2rem;
+  --fs-label-contact: 0.9rem;
+  --fs-text-contact: 2rem;
+  --fs-btn-contact: 0.8rem;
+  --fs-meta: 0.85rem;
+}
+
 html,
 body {
   margin: 0;
@@ -125,7 +141,7 @@ video {
 
 .option span {
   font-family: "CustomFont", "CustomFont1", sans-serif;
-  font-size: 3rem;
+  font-size: var(--fs-pages);
   letter-spacing: 1px;
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
@@ -202,7 +218,7 @@ video {
   border: none;
   padding: 12px 25px;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: var(--fs-back-btn);
   cursor: pointer;
   font-weight: bold;
   border-radius: 4px;
@@ -247,40 +263,6 @@ video {
   text-align: left;
 }
 
-#detail-title {
-  font-size: 4rem;
-  margin: 0 0 15px 0;
-  color: white;
-  display: inline-block;
-  line-height: 1.1;
-}
-
-#detail-description {
-  line-height: 1;
-  font-size: 1.9rem;
-  color: #ddd;
-  margin-bottom: 30px;
-  max-width: 600px;
-  font-weight: 300;
-  white-space: pre-line;
-  display: block;
-  unicode-bidi: isolate;
-}
-
-#detail-year,
-#detail-medium {
-  color: white;
-  margin-right: 10px;
-}
-
-.art-meta {
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: red;
-  font-weight: bold;
-}
-
 @media (max-width: 1024px) {
   .page.active {
     justify-content: flex-start;
@@ -310,10 +292,6 @@ video {
     align-items: center;
   }
 
-  #detail-title {
-    font-size: 2.5rem;
-  }
-
   .art-visual img {
     max-height: 50vh;
   }
@@ -334,7 +312,7 @@ video {
   }
 
   .option span {
-    font-size: 1.8rem;
+    font-size: var(--fs-pages-mobile);
   }
 }
 
@@ -373,13 +351,13 @@ video {
 
 .art-info h1 {
   margin: 0;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: var(--fs-art-title);
   line-height: 1.1;
 }
 
 .art-info p {
   line-height: 1.6;
-  font-size: 1.1rem;
+  font-size: var(--fs-small-text);
   color: rgba(255, 255, 255, 0.8);
   max-width: 60ch;
 }
@@ -453,7 +431,7 @@ video {
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  font-size: 1.1rem;
+  font-size: var(--fs-small-text);
 }
 
 .stack-frame img {
@@ -464,7 +442,7 @@ video {
 }
 
 .stack-columns {
-  font-size: 2.8rem;
+  font-size: var(--fs-big-text);
 }
 
 @media (max-width: 900px) {
@@ -504,7 +482,7 @@ video {
 }
 
 .chess-header h1 {
-  font-size: 4rem;
+  font-size: var(--fs-title);
   margin-bottom: 20px;
 }
 
@@ -534,14 +512,14 @@ video {
 
 .chess-info-box h2 {
   font-family: "CustomFont", "CustomFont1", sans-serif;
-  font-size: 2.5rem;
+  font-size: var(--fs-title-chess);
   margin: 0;
   line-height: 1;
   color: white;
 }
 
 .chess-info-box p {
-  font-size: 1.2rem;
+  font-size: var(--fs-text-chess);
   line-height: 1.5;
   color: #ccc;
   margin: 0;
@@ -625,7 +603,7 @@ video {
 }
 
 .contact-content h1 {
-  font-size: 4rem;
+  font-size: var(--fs-title);
   margin: 0 0 20px 0;
   color: red;
 }
@@ -652,7 +630,7 @@ video {
 
 .contact-label {
   display: block;
-  font-size: 0.9rem;
+  font-size: var(--fs-label-contact);
   color: #666;
   letter-spacing: 2px;
   margin-bottom: 5px;
@@ -660,7 +638,7 @@ video {
 
 .contact-value {
   display: block;
-  font-size: 2rem;
+  font-size: var(--fs-text-contact);
   color: white;
   margin-bottom: 15px;
 }
@@ -683,7 +661,7 @@ video {
   color: #fff;
   padding: 8px 20px;
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: var(--fs-btn-contact);
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -892,7 +870,7 @@ h1, h2, .contact-value {
 
 .art-meta span {
   color: #888;
-  font-size: 0.85rem;
+  font-size: var(--fs-meta);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
