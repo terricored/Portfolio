@@ -6,6 +6,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "CustomFont1";
+  src: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/Latinterricored-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 html,
 body {
   margin: 0;
@@ -14,7 +22,7 @@ body {
   height: 100vh;
   background: black;
   color: white;
-  font-family: "CustomFont", sans-serif;
+  font-family: "CustomFont", "CustomFont1", sans-serif;
   -webkit-text-size-adjust: 100%;
   overflow: hidden;
   touch-action: pan-y;
@@ -116,7 +124,7 @@ video {
 }
 
 .option span {
-  font-family: "CustomFont", sans-serif;
+  font-family: "CustomFont", "CustomFont1", sans-serif;
   font-size: 3rem;
   letter-spacing: 1px;
   backface-visibility: hidden;
@@ -487,7 +495,7 @@ video {
   width: 100%;
   padding: 80px 10%;
   box-sizing: border-box;
-  font-family: "CustomFont", sans-serif;
+  font-family: "CustomFont", "CustomFont1", sans-serif;
 }
 
 .chess-header {
@@ -525,7 +533,7 @@ video {
 }
 
 .chess-info-box h2 {
-  font-family: "CustomFont", sans-serif;
+  font-family: "CustomFont", "CustomFont1", sans-serif;
   font-size: 2.5rem;
   margin: 0;
   line-height: 1;
@@ -599,7 +607,7 @@ video {
   padding: 120px 10% 60px 10%;
   align-items: start;
   justify-content: center;
-  font-family: "CustomFont", sans-serif;
+  font-family: "CustomFont", "CustomFont1", sans-serif;
   transition: opacity 0.4s ease;
 }
 
