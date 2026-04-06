@@ -26,6 +26,10 @@
   --fs-contact-desc: 1rem; /* Текст для сторінки з контактами */
   --fs-contact-text: 2rem; /* Контакти для сторінки з контактами */
   --fs-meta: 0.85rem; /* Мета-інфо: рік, дата, текст під контактами */
+
+  --lh-art: 1.6;
+  --lh-stack: 1.5;
+  --lh-chess: 1.5;
 }
 
 html,
@@ -354,7 +358,7 @@ video {
 }
 
 .art-info p {
-  line-height: 1.6;
+  line-height: var(--lh-art);
   font-size: var(--fs-art-text);
   color: rgba(255, 255, 255, 0.8);
   max-width: 60ch;
@@ -423,6 +427,11 @@ video {
   gap: 20px;
   text-align: left;
 }
+.stack-info-col h1{
+  margin: 0;
+  font-size: var(--fs-title);
+  line-height: 1.1;
+}
 
 .stack-frame {
   position: relative;
@@ -440,6 +449,7 @@ video {
 
 .stack-columns {
   font-size: var(--fs-stack-text);
+  line-height: var(--lh-stack);
 }
 
 @media (max-width: 900px) {
@@ -517,9 +527,10 @@ video {
 
 .chess-info-box p {
   font-size: var(--fs-chess-text);
-  line-height: 1.5;
+  line-height: var(--lh-chess);
   color: #ccc;
   margin: 0;
+  color: white;
 }
 
 .chess-visual-box {
@@ -659,6 +670,7 @@ video {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s;
+  color: white;
 }
 
 .contact-actions button:hover,
