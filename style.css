@@ -19,17 +19,17 @@
   --fs-mobile-pages: 1.8rem; /* Літаючі опції навколо центру (розмір для телефонів) */
   --fs-back-btn: 1rem; /* Текст кнопки назад */
   --fs-title: 5rem; /* Заголовоки */
-  --fs-art-text: 2.5rem; /* Текст для сторінки картинка+текст */
+  --fs-art-text: 2rem; /* Текст для сторінки картинка+текст */
   --fs-stack-text: 2.8rem; /* Текст для сторінки з довгою картиинкою */
   --fs-chess-title: 4rem; /* Підзаголовки для сторінки з шахматним порядком */
-  --fs-chess-text: 2.5rem; /* Текст для сторінки з шахматним порядком */
-  --fs-contact-desc: 1rem; /* Текст для сторінки з контактами */
+  --fs-chess-text: 2rem; /* Текст для сторінки з шахматним порядком */
+  --fs-contact-desc: 0rem; /* Текст для сторінки з контактами */
   --fs-contact-text: 2rem; /* Контакти для сторінки з контактами */
   --fs-meta: 1.5rem; /* Мета-інфо: рік, дата, текст під контактами */
 
-  --lh-art: 1.6;
-  --lh-stack: 1.5;
-  --lh-chess: 1.5;
+  --lh-art: 1;
+  --lh-stack: 1;
+  --lh-chess: 1;
 }
 
 html,
@@ -507,14 +507,15 @@ video {
 }
 
 .chess-row:nth-child(even) .chess-info-box {
-  direction: ltr;
+  direction: ltr;  
+  text-align: left;
 }
 
 .chess-info-box {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  text-align: left;
+  text-align: right;
 }
 
 .chess-info-box h2 {
@@ -797,14 +798,14 @@ video {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 20px 0;
+  padding: 5px 0;
   border-bottom: 1px solid #111;
 }
 
 .contact-left-group {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 5px;
   flex: 1;
 }
 
@@ -885,5 +886,13 @@ h1, h2, .contact-value {
 /* Vertical stacking for contact page text specifically */
 .contact-text-group .art-meta {
   margin-bottom: 0;
-  margin-top: 4px;
+  margin-top: 1px;
+}
+
+.art-meta span, 
+.art-info p, 
+.stack-description p, 
+.chess-info-box p, 
+.contact-desc {
+  white-space: pre-line;
 }
