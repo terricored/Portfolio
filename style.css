@@ -228,7 +228,7 @@ video {
 }
 
 #back-button:hover {
-  background: red;
+  background: rgb(110, 113, 37);
   color: white;
   transform: translateX(-5px);
 }
@@ -614,7 +614,7 @@ video {
 .contact-content h1 {
   font-size: var(--fs-title);
   margin: 0 0 20px 0;
-  color: red;
+  color: rgb(110, 113, 37);
 }
 
 .contact-list {
@@ -634,7 +634,7 @@ video {
 }
 
 .contact-item:hover {
-  border-color: red;
+  border-color: rgb(110, 113, 37);
 }
 
 .contact-desc{
@@ -653,7 +653,7 @@ video {
 
 /* Red selection highlight */
 .contact-value::selection {
-  background: red;
+  background: rgb(110, 113, 37);
   color: black;
 }
 
@@ -773,8 +773,8 @@ video {
 
 /* Success State (for the Copy Checkmark) */
 .btn-copy.copy-success {
-  border-color: red !important;
-  color: red !important;
+  border-color: rgb(110, 113, 37);
+  color: rgb(110, 113, 37);
   background: rgba(255, 0, 0, 0.05);
 }
 
