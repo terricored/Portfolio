@@ -927,3 +927,13 @@ body:active {
   background-color: rgb(67, 67, 67); /* */
   color: white;
 }
+
+/* Ensure all interactive elements use the pointer cursor */
+button, 
+a, 
+.option, 
+.btn-open, 
+.value-wrapper,
+[role="button"] {
+  cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hand2.png") 16 16, pointer !important;
+}
