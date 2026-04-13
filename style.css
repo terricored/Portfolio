@@ -896,3 +896,25 @@ h1, h2, .contact-value {
 .contact-desc {
   white-space: pre-line;
 }
+
+/* 1. Default State (Fully White Cursor) */
+html, body {
+  cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/cursor3.png"), auto;
+}
+
+/* 2. Interactive State (Transparent Core Cursor) */
+/* Apply this to anything the user can click but isn't a "Link" */
+button, 
+.btn-copy, 
+.chess-visual-box, 
+.stack-frame {
+  cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/cursor4.png"), pointer;
+}
+
+/* 3. Pointing State (Pointing Cursor) */
+/* Specifically for actual navigation links or external redirects */
+a, 
+.btn-open, 
+nav a {
+  cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/point.png"), pointer;
+}
