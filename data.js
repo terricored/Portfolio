@@ -74,7 +74,7 @@ const artData = [
     title: "впо",
     filename: "vpo12.png",
     desc: "цикл робіт, зосереджений на досвіді вимушенного переміщення",
-    year: "2019-",
+    year: "від 2019 і по теперішній час включно",
     medium: "",
     type: "chess",
     rows: [
