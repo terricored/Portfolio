@@ -922,3 +922,8 @@ nav a {
 body:active {
   cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hand2.png") 16 16, move;
 }
+
+::selection {
+  background-color: rgba(110, 113, 36, 1); /* Semi-transparent piss green */
+  color: white;
+}
