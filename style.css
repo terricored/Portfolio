@@ -918,3 +918,7 @@ a,
 nav a {
   cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hand2.png") 16 16, pointer;
 }
+
+body:active {
+  cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hand2.png") 16 16, move;
+}
