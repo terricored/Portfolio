@@ -899,7 +899,7 @@ h1, h2, .contact-value {
 
 /* 1. Default State (Fully White Cursor) */
 html, body {
-  cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/cursor5.png") 16 16, auto;
+  cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/cursor7.png") 16 16, auto;
 }
 
 /* 2. Interactive State (Transparent Core Cursor) */
@@ -908,7 +908,7 @@ button,
 .btn-copy, 
 .chess-visual-box, 
 .stack-frame {
-  cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/cursor6.png") 16 16, pointer;
+  cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/cursor8.png") 16 16, pointer;
 }
 
 /* 3. Pointing State (Pointing Cursor) */
@@ -916,5 +916,5 @@ button,
 a, 
 .btn-open, 
 nav a {
-  cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/cursor6.png") 16 16, pointer;
+  cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/cursor8.png") 16 16, pointer;
 }
