@@ -17,19 +17,21 @@
 :root {
   --fs-pages: 3.5rem; /* Літаючі опції навколо центру */
   --fs-mobile-pages: 1.8rem; /* Літаючі опції навколо центру (розмір для телефонів) */
-  --fs-back-btn: 1rem; /* Текст кнопки назад */
+  --fs-back-btn: 1.2rem; /* Текст кнопки назад */
   --fs-title: 5rem; /* Заголовоки */
   --fs-art-text: 2rem; /* Текст для сторінки картинка+текст */
   --fs-stack-text: 2.8rem; /* Текст для сторінки з довгою картиинкою */
-  --fs-chess-title: 4rem; /* Підзаголовки для сторінки з шахматним порядком */
+  --fs-chess-title: 3.8rem; /* Підзаголовки для сторінки з шахматним порядком */
   --fs-chess-text: 2rem; /* Текст для сторінки з шахматним порядком */
+  --fs-chess-desc: 2rem;
   --fs-contact-desc: 0rem; /* Текст для сторінки з контактами */
   --fs-contact-text: 2rem; /* Контакти для сторінки з контактами */
-  --fs-meta: 1.5rem; /* Мета-інфо: рік, дата, текст під контактами */
+  --fs-meta: 1rem; /* Мета-інфо: рік, дата, текст під контактами */
 
-  --lh-art: 1;
-  --lh-stack: 1;
-  --lh-chess: 1;
+  --lh-art: 0.7;
+  --lh-stack: 0.7;
+  --lh-chess: 0.8;
+--lh-chess-title: 0.67;
 }
 
 html,
@@ -228,7 +230,7 @@ video {
 }
 
 #back-button:hover {
-  background: rgb(110, 113, 37);
+  background: red;
   color: white;
   transform: translateX(-5px);
 }
@@ -375,10 +377,12 @@ video {
 
 .detail-content-wrapper.layout-split {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
+  grid-template-columns: 1.67fr 2.67fr;
+  gap: 30px;
   align-items: center;
-  text-align: left;
+  text-align: left;    
+  padding-left: 67px;  
+  padding-right: 67px;
 }
 
 @media (max-width: 900px) {
@@ -493,9 +497,13 @@ video {
   margin-bottom: 20px;
 }
 
+.main-desc {
+  font-size: var(--fs-chess-desc);
+}
+
 .chess-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 80px;
   margin-bottom: 150px;
   align-items: start;
@@ -522,7 +530,7 @@ video {
   font-family: "CustomFont", "CustomFont1", sans-serif;
   font-size: var(--fs-chess-title);
   margin: 0;
-  line-height: 1;
+  line-height: var(--lh-chess-title);
   color: white;
 }
 
@@ -614,7 +622,7 @@ video {
 .contact-content h1 {
   font-size: var(--fs-title);
   margin: 0 0 20px 0;
-  color: rgb(110, 113, 37);
+  color: red;
 }
 
 .contact-list {
@@ -634,7 +642,7 @@ video {
 }
 
 .contact-item:hover {
-  border-color: rgb(110, 113, 37);
+  border-color: red;
 }
 
 .contact-desc{
@@ -653,7 +661,7 @@ video {
 
 /* Red selection highlight */
 .contact-value::selection {
-  background: rgb(110, 113, 37);
+  background: red;
   color: black;
 }
 
@@ -773,8 +781,8 @@ video {
 
 /* Success State (for the Copy Checkmark) */
 .btn-copy.copy-success {
-  border-color: rgb(110, 113, 37);
-  color: rgb(110, 113, 37);
+  border-color: red !important;
+  color: red !important;
   background: rgba(255, 0, 0, 0.05);
 }
 
@@ -918,6 +926,7 @@ a,
 nav a {
   cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hand2.png") 16 16, pointer;
 }
+
 
 body:active {
   cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hand2.png") 16 16, move;
