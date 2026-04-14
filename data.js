@@ -57,7 +57,7 @@ const artData = [
     title: "екстра",
     filename: "nullimage@0,33x.png",
     desc: "тут скоро щось буде",
-    year: "2024-2025",
+    year: "",
     medium: "",
     type: "art-split"
   },
