@@ -58,7 +58,7 @@ const artData = [
     filename: "nullimage@0,33x.png",
     desc: "тут скоро щось буде",
     year: "2024-2025",
-    medium: "акварель, папір",
+    medium: "",
     type: "art-split"
   },
   {
