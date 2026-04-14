@@ -129,7 +129,7 @@ video {
   top: 50%;
   left: 50%;
   cursor: pointer;
-  color: white;
+  color: grey;
   transition: color 0.3s;
   z-index: 3;
   user-select: none;
