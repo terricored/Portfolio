@@ -35,7 +35,7 @@ const artData = [
     type: "contact",
     desc: "",
     reactionImg: "shy.png",
-    glitchGif: "shy.gif",
+    glitchGif: "shy2.gif",
     links: [
       { label: "EMAIL", value: "terricored@gmail.com", url: "mailto:terricored@gmail.com" },
       { label: "TELEGRAM", value: "@yukozub", url: "https://t.me/yukozub" },
