@@ -31,7 +31,7 @@
   --lh-art: 0.7;
   --lh-stack: 0.7;
   --lh-chess: 0.8;
-  --lh-chess-title: 0.67;
+--lh-chess-title: 0.67;
 }
 
 html,
@@ -179,7 +179,7 @@ video {
 .option:hover span {
   display: inline-block !important;
   animation: jitter 0.2s infinite !important;
-  color: grey !important;
+  color: white !important;
   position: relative;
   z-index: 1000;
 }
@@ -700,7 +700,7 @@ video {
   .contact-item {
     border-left: none;
     border-bottom: 1px solid #222;
-    padding: 0 0 20px 0;
+    padding: 0px 0px 20px 0px;
   }
 
   .contact-actions {
@@ -715,7 +715,7 @@ video {
   /* Pushes text left, icons right */
   align-items: center;
   width: 100%;
-  padding: 20px 0;
+  padding: 20px grey0;
   border-bottom: 1px solid #111;
   /* Subtle divider */
   transition: border-color 0.3s;
@@ -945,4 +945,51 @@ a,
 .value-wrapper,
 [role="button"] {
   cursor: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hand2.png") 16 16, pointer !important;
+}
+
+/* target images specifically within the layouts you want to restrict */
+.layout-standard .art-visual img,
+.layout-split .art-visual img,
+.chess-visual-box img {
+  /* Scale based on viewport height */
+  max-height: 90vh; 
+  
+  /* Scale based on container width (safety check) */
+  max-width: 90%; 
+
+  /* Keep original proportions */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  
+  /* Center it if it's smaller than the container */
+  margin: 0 auto; 
+}
+
+/* contact.css */
+
+.contact-visual img {
+  /* Scale to 90% of screen height */
+  max-height: 90vh;
+  
+  /* Keep proportions */
+  width: auto;
+  height: auto;
+  
+  /* Prevent horizontal overflow */
+  max-width: 100%;
+  
+  /* Standard fix for image rendering */
+  display: block;
+  object-fit: contain;
+}
+
+/* Ensure the wrapper allows the image to be the height-limiter */
+.contact-page-wrapper {
+  display: flex;
+  align-items: center; /* Center vertically if image is 90vh */
+  justify-content: center;
+  min-height: 90vh; /* Make sure the page fills the screen */
+  padding: 5vh 10%;
+  box-sizing: border-box;
 }

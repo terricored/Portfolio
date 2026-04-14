@@ -181,8 +181,9 @@ function initChessLayout(container, art) {
         <div class="chess-info-box">
           <h2>${row.title}</h2>
           <div class="art-meta">
-            <span>${row.medium || ''}</span>
             <span>${row.year || ''}</span>
+            <span>${row.medium || ''}</span>
+            
           </div>
           <p>${row.desc}</p>
         </div>
@@ -232,10 +233,6 @@ function initContactLayout(container, data) {
         ${openAction}
         <div class="contact-text-group btn-copy" data-copy="${link.value}">
           <span class="contact-value">${link.value}</span>
-          <div class="art-meta">
-            <span>${link.label}</span>
-            <span>${link.year || ''}</span>
-          </div>
         </div>
       </div>
       <div class="contact-actions">
