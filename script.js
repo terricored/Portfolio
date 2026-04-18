@@ -276,7 +276,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const assetPromise = preloadAssets(artData);
     
     loadGallery();
-    initScratch();
 
     const backBtn = document.getElementById("back-button");
     if (backBtn) backBtn.addEventListener("click", closeArtDetails);
