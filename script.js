@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       document.getElementById("portfolio-wrapper").style.opacity = "1";
     document.getElementById("loading-screen").style.display = "none";
-    }, 2000);
+    }, 6000);
     
   });
 });

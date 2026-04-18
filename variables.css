@@ -15,7 +15,7 @@
   --fs-chess-text: 2rem;
   --fs-chess-desc: 2rem;
   --fs-contact-text: 2rem;
-  --fs-meta: 1rem;
+  --fs-meta: 1.2rem;
   --fs-footer: 2rem;
 
   /* --- Line Heights --- */
@@ -23,13 +23,13 @@
   --lh-stack: 0.7;
   --lh-chess: 0.8;
   --lh-chess-title: 0.67;
+  --lh-meta: 0.8;
 
   /* --- Colors --- */
   --bg-color: #000000;
   --bg-page: #050505;
   --text-main: #ffffff;
-  --text-dim: #888888;
-  --accent: #888888; /* Red for back button hover / contact headers */
+  --text-dim: rgb(67,67,67);
 
   /* --- Spacing & Proportions --- */
   --page-padding: 80px;      /* Top padding for detail pages */
