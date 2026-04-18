@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     width: 95vw;
-    height: 80vh;
+    height: 80vh + var(--contacts-padding);
     gap: var(--contact-section-gap);
     box-sizing: border-box;
     overflow: hidden;    
@@ -20,7 +20,7 @@
     /* Takes 1 part of the space */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
 }
 
 .contact-visual img {
