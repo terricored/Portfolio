@@ -40,8 +40,8 @@
   --snap-offset: 30px;
   --chess-max-img-height: calc(95vh - (var(--snap-offset) * 2));
   --contact-section-gap: 3vw;
-  --icon-big-size: 267px;
-  --icon-small-size: 67px;
+  --icon-big-size: 200px;
+  --icon-small-size: 50px;
   
   /* --- Footer Specific --- */
   --footer-padding: 40px;
