@@ -134,25 +134,31 @@
 }
 
 /* --- MOBILE RESPONSIVE --- */
-@media (max-width: 1100px) { /* Adjust breakpoint based on when it looks tight */
+@media (max-width: 1100px) {
     .layout-stack-continuous .stack-columns {
-        grid-template-columns: 1fr; /* Force one column */
+        /* Force single column */
+        grid-template-columns: 1fr; 
         padding: 0 5% 50px 5%;
+        gap: 30px;
     }
 
     .stack-info-col {
-        position: relative; /* Disable sticky so it scrolls normally */
+        position: relative; 
         top: 0;
-        order: 2; /* Moves text BELOW the images */
-        padding-top: 20px;
+        /* Lower number comes first */
+        order: 1; 
+        padding-bottom: 20px;
     }
 
     .stack-visual-col {
-        order: 1; /* Moves images to the TOP */
+        /* Higher number comes second */
+        order: 2; 
     }
 
     .stack-frame img {
+        width: 100%;
         max-width: 100%;
+        height: auto;
     }
 }
 
