@@ -6,33 +6,49 @@
 @import url("contact.css");
 @import url("footer.css");
 
-/* --- Custom Scrollbar --- */
-
-/* 1. The Width of the track */
+/* 1. The main scrollbar track */
 ::-webkit-scrollbar {
-  width: 8px;              /* Vertical scrollbar width */
-  height: 8px;             /* Horizontal scrollbar height */
+    width: 20px; /* Adjust this to fit your juk.png width */
 }
 
-/* 2. The Track (the background of the scrollbar) */
+/* 2. The background of the scrollbar */
 ::-webkit-scrollbar-track {
-  background: var(--bg-color); 
+    background: var(--bg-color); 
 }
 
-/* 3. The Thumb (the actual draggable slider) */
+/* 3. The 'Juk' thumb */
 ::-webkit-scrollbar-thumb {
-  background: var(--text-dim);
-  border-radius: 10px;     /* Makes it a rounded pill shape */
-  border: 2px solid var(--bg-color); /* Creates "padding" around the thumb */
+    background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/juk.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* This ensures the image has enough height to be visible */
+    min-height: 40px; 
+    
+    /* Adds a little "padding" so the bug doesn't touch the screen edge */
+    background-clip: padding-box;
+    border: 2px solid transparent;
 }
 
-/* 4. Hover state for the thumb */
+/* 4. Optional: A slight hover effect */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-main); /* Brightens when you grab it */
+    filter: brightness(1.2) contrast(1.1);
 }
 
-/* --- Firefox Support --- */
+/* 5. Firefox Fallback (Firefox doesn't support images yet) */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: var(--text-dim) var(--bg-color);
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-dim) transparent;
+}
+
+@media (max-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 4px; /* Thin, subtle line for mobile */
+    }
+    ::-webkit-scrollbar-thumb {
+        background-image: none;
+        background-color: var(--text-dim);
+        border-radius: 10px;
+    }
 }
