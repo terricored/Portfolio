@@ -1,0 +1,130 @@
+/* contact.css */
+
+/* 1. DESKTOP DEFAULT */
+.contact-page-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 95vw;
+    height: 80vh;
+    gap: var(--contact-section-gap);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* MAIN REACTION IMAGE (The Left Section) */
+.contact-visual {
+    flex: 0 1 auto;
+    /* Takes 1 part of the space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-visual img {
+    max-width: 100%;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* CONTACTS SECTION (The Right Section) */
+.contact-content {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0px;
+}
+
+.contact-grid-title {
+    font-size: 4rem;
+    /* Scaled up to match the larger section */
+    color: var(--accent);
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+/* 2. THE DYNAMIC GRID */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 30px 100px;
+    /* Wider gaps to fill the expanded area */
+    align-items: end;
+}
+
+.icon-wrapper {
+    position: relative;
+    display: inline-block;
+    height: var(--icon-big-size);
+}
+
+.big-brand-icon {
+    height: 100%;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* MINI COPY ICON */
+.mini-copy-btn {
+    position: absolute;
+    top: 0;
+    right: -35px;
+    width: var(--icon-small-size);
+    height: var(--icon-small-size);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mini-copy-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.5;
+}
+
+/* 3. MOBILE OVERRIDE */
+@media (max-width: 900px) {
+    .contact-page-wrapper {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        padding: 60px 20px;
+        gap: 50px;
+    }
+
+    .contact-visual,
+    .contact-content {
+        flex: none;
+        /* Revert to standard stacking on mobile */
+        width: 100%;
+    }
+
+    .contact-visual img {
+        max-height: 35vh;
+    }
+
+    .contact-content {
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .contact-grid-title {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .icon-wrapper {
+        height: 120px;
+    }
+
+    .contact-grid {
+        gap: 40px 60px;
+    }
+}

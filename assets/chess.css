@@ -1,0 +1,144 @@
+/* chess.css */
+
+.layout-chess {
+    width: 100%;
+    padding: 0 10% var(--page-padding) 10%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-chess .art-description {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    /* Ensure it's a block element so margins work */
+    display: block;
+}
+
+/* --- Magnetic Snap Logic --- */
+
+.chess-header,
+.chess-row {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    position: relative;
+}
+
+/* --- Header Section --- */
+
+.chess-header {
+    text-align: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+/* --- Grid Rows --- */
+
+.chess-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-bottom: var(--chess-gap);
+    align-items: start;
+    scroll-margin-top: var(--snap-offset);
+}
+
+/* --- Alternating Flip Logic --- */
+.chess-row.flipped {
+    direction: rtl;
+    /* Flips the grid columns */
+}
+
+.chess-row.flipped .chess-info-box {
+    direction: ltr;
+    /* Restores text direction */
+    text-align: left;
+}
+
+.snap-anchor {
+    position: absolute;
+    top: calc(var(--snap-offset) * -1);
+    left: 0;
+    visibility: hidden;
+    scroll-snap-align: start;
+}
+
+.chess-row:last-child {
+    margin-bottom: 0;
+    scroll-snap-align: start end;
+}
+
+/* --- Content Styling --- */
+
+.chess-info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: right;
+}
+
+.chess-info-box h2 {
+    font-size: var(--fs-chess-title);
+    line-height: var(--lh-chess-title);
+    margin: 0;
+}
+
+.chess-info-box p {
+    font-size: var(--fs-chess-text);
+    line-height: var(--lh-chess);
+    color: var(--text-main);
+    opacity: 0.9;
+}
+
+.chess-visual-box {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    max-height: var(--chess-max-img-height);
+    overflow: hidden;
+}
+
+.chess-visual-box img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: var(--chess-max-img-height);
+}
+
+/* --- Video Styling --- */
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+    height: 0;
+    background: #111;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 900px) {
+
+    .chess-row,
+    .chess-row:nth-child(even) {
+        display: flex;
+        flex-direction: column;
+        direction: ltr;
+        gap: 30px;
+    }
+
+    .chess-info-box,
+    .chess-row:nth-child(even) .chess-info-box {
+        text-align: center !important;
+    }
+}

@@ -1,0 +1,128 @@
+.page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 10;
+    background: var(--bg-page);
+    transition: opacity 0.4s ease;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.page:has(.layout-chess) {
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: var(--snap-offset);
+    overscroll-behavior-y: contain;
+}
+
+.page.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.detail-content-wrapper {
+    padding: var(--page-padding) 0;
+    width: 100%;
+    flex: 1;
+    /* Pushes footer to the bottom */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* Shared Components */
+.art-title {
+    font-size: var(--fs-title);
+    margin: 0 0 10px 0;
+    line-height: 1.1;
+}
+
+.art-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
+    font-size: var(--fs-meta);
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+
+.art-description {
+    font-size: var(--fs-art-text);
+    line-height: var(--lh-art);
+    max-width: 65ch;
+    white-space: pre-line;
+}
+
+.art-visual img {
+    max-height: var(--img-max-height);
+    width: auto;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+/* --- Layout: Standard --- */
+.layout-standard {
+    align-items: center;
+    text-align: center;
+}
+
+/* --- Layout: Split --- */
+.layout-split {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: var(--split-grid-ratio);
+    gap: 40px;
+    padding: var(--page-padding) 10%;
+    align-items: center;
+}
+
+.layout-split .art-description {
+  max-width: 500px; 
+}
+
+
+/* --- Layout: Stack --- */
+.layout-stack-continuous .stack-columns {
+    display: grid;
+    grid-template-columns: minmax(auto, 900px) 400px;
+    gap: var(--stack-gap);
+    padding: 0 10% 100px 10%;
+}
+
+.stack-info-col {
+    position: sticky;
+    top: 40px;
+    height: fit-content;
+}
+
+.stack-frame img {
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Back Button */
+#back-button {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 100;
+    background: var(--text-main);
+    color: var(--bg-color);
+    padding: 12px 25px;
+    font-size: var(--fs-back-btn);
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#back-button:hover {
+    background: var(--accent);
+    color: var(--text-main);
+}

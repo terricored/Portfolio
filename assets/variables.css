@@ -1,0 +1,49 @@
+:root {
+  /* --- Fonts --- */
+  --font-main: "CustomFont", "CustomFont1", sans-serif;
+  --font-primary: "CustomFont";
+  --font-secondary: "CustomFont1";
+
+  /* --- Font Sizes --- */
+  --fs-home-options: 3.5rem;
+  --fs-home-mobile: 1.8rem;
+  --fs-back-btn: 1.2rem;
+  --fs-title: 5rem;
+  --fs-art-text: 2rem;
+  --fs-stack-text: 2.8rem;
+  --fs-chess-title: 3.8rem;
+  --fs-chess-text: 2rem;
+  --fs-chess-desc: 2rem;
+  --fs-contact-text: 2rem;
+  --fs-meta: 1rem;
+  --fs-footer: 2rem;
+
+  /* --- Line Heights --- */
+  --lh-art: 0.7;
+  --lh-stack: 0.7;
+  --lh-chess: 0.8;
+  --lh-chess-title: 0.67;
+
+  /* --- Colors --- */
+  --bg-color: #000000;
+  --bg-page: #050505;
+  --text-main: #ffffff;
+  --text-dim: #888888;
+  --accent: #888888; /* Red for back button hover / contact headers */
+
+  /* --- Spacing & Proportions --- */
+  --page-padding: 80px;      /* Top padding for detail pages */
+  --img-max-height: 90vh;    /* Your 90% viewport height rule */
+  --chess-gap: 150px;        /* Vertical space between chess rows */
+  --stack-gap: 80px;         /* Gap between image and info in Stack layout */
+  --split-grid-ratio: 1fr 1fr; /* Ratio for the split page layout */
+  --snap-offset: 30px;
+  --chess-max-img-height: calc(95vh - (var(--snap-offset) * 2));
+  --contact-section-gap: 3vw;
+  --icon-big-size: 267px;
+  --icon-small-size: 67px;
+  
+  /* --- Footer Specific --- */
+  --footer-padding: 40px;
+  --footer-opacity: 0.3;
+}

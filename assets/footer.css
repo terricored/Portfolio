@@ -1,0 +1,26 @@
+/* footer.css or global.css */
+
+.main-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Styling from your variables */
+  color: var(--text-dim);
+  font-size: var(--fs-footer);
+  
+  /* Positioning */
+  padding: 20px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  
+  /* Ensure it doesn't trigger scrollbars */
+  box-sizing: border-box;
+  pointer-events: none; /* Allows clicks to pass through if overlapping art */
+}
+
+.home-page .main-footer {
+  display: flex;
+}
