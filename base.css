@@ -104,7 +104,7 @@ a, button, .option, .btn-copy, .btn-open, [role="button"] {
 }
 
 .loader-media {
-    width: 120px;   /* Adjust size as needed */
+    width: 360px;   /* Adjust size as needed */
     height: auto;
     object-fit: contain;
     /* Optional: subtle fade-in effect */
