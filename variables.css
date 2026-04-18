@@ -33,7 +33,7 @@
 
   /* --- Spacing & Proportions --- */
   --page-padding: 30px;      /* Top padding for detail pages */
-  --contacts-padding: 60px;      /* Top padding for contacts pages */
+  --contacts-padding: 120px;      /* Top padding for contacts pages */
   --img-max-height: 90vh;    /* Your 90% viewport height rule */
   --chess-gap: 150px;        /* Vertical space between chess rows */
   --stack-gap: 80px;         /* Gap between image and info in Stack layout */
