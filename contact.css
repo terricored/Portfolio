@@ -11,7 +11,7 @@
     gap: var(--contact-section-gap);
     box-sizing: border-box;
     overflow: hidden;    
-    padding: var(--page-padding) 0;
+    padding: var(--contacts-padding);
 }
 
 /* MAIN REACTION IMAGE (The Left Section) */
