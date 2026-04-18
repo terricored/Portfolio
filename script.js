@@ -12,8 +12,25 @@ const renderMeta = (year, medium) => `
 `;
 
 function preloadAssets(artPieces) {
-    // 1. Collect all URLs to preload
     const imagesToPreload = [
+        DEFAULT_IMG,
+        `${GITHUB_ASSETS}wormload.gif`
+    ];
+     const uniqueImages = [...new Set(imagesToPreload)];
+
+    const promises = uniqueImages.map(src => {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = resolve;
+            img.onerror = resolve; 
+        });
+    });
+
+    return Promise.all(promises);
+
+    // 1. Collect all URLs to preload
+    const imagesToPreloads = [
         DEFAULT_IMG,
         `${GITHUB_ASSETS}wormload.gif`, // Preload the loader itself for next time
         `${GITHUB_ASSETS}juk.png`, // Preload the loader itself for next time
@@ -37,9 +54,9 @@ function preloadAssets(artPieces) {
         }
     });
 
-   const uniqueImages = [...new Set(imagesToPreload)];
+   const uniqueImagess = [...new Set(imagesToPreload)];
 
-    const promises = uniqueImages.map(src => {
+    const promisess = uniqueImages.map(src => {
         return new Promise((resolve) => {
             const img = new Image();
             img.src = src;
