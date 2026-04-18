@@ -307,6 +307,7 @@ function animate() {
 document.addEventListener("DOMContentLoaded", () => {
   preloadAssets(artData);
   loadGallery();
+  animate();
 
   const backBtn = document.getElementById("back-button");
   if (backBtn) backBtn.addEventListener("click", closeArtDetails);
