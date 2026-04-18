@@ -67,6 +67,7 @@
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
+    width: 40px; /* Adjust this to fit your juk.png width */
     
     /* Ensure it has physical presence */
     min-height: 60px !important;
