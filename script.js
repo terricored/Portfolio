@@ -260,7 +260,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (backBtn) backBtn.addEventListener("click", closeArtDetails);
 
   document.fonts.ready.then(() => {
-    document.getElementById("portfolio-wrapper").style.opacity = "1";
+    
+    setTimeout(() => {
+      document.getElementById("portfolio-wrapper").style.opacity = "1";
     document.getElementById("loading-screen").style.display = "none";
+    }, 2000);
+    
   });
 });
