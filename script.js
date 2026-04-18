@@ -12,17 +12,36 @@ const renderMeta = (year, medium) => `
 `;
 
 function preloadAssets(artPieces) {
-  const imagesToPreload = [DEFAULT_IMG];
-  artPieces.forEach(art => {
-    imagesToPreload.push(`${GITHUB_ASSETS}${art.id}n.png`);
-    if (art.image) imagesToPreload.push(art.image);
-    if (art.filename) imagesToPreload.push(`${GITHUB_ASSETS}${art.filename}`);
-  });
+    // 1. Collect all URLs to preload
+    const imagesToPreload = [
+        DEFAULT_IMG,
+        `${GITHUB_ASSETS}wormload.gif`, // Preload the loader itself for next time
+        `${GITHUB_ASSETS}juk.png`, // Preload the loader itself for next time
+        `${GITHUB_ASSETS}shy2.gif`
+    ];
 
-  imagesToPreload.forEach(src => {
-    const img = new Image();
-    img.src = src;
-  });
+    artPieces.forEach(art => {
+        if (art.filename) imagesToPreload.push(`${GITHUB_ASSETS}${art.filename}`);
+        // If your data has nested rows (like in 'chess' layout), grab those too
+        if (art.rows) {
+            art.rows.forEach(row => {
+                if (row.media && row.media[0]) imagesToPreload.push(`${GITHUB_ASSETS}${row.media[0].src}`);
+            });
+        }
+    });
+
+    // 2. Create a Promise for every image
+    const promises = imagesToPreload.map(src => {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = resolve;
+            img.onerror = resolve; // Continue even if one image fails
+        });
+    });
+
+    // 3. Return a single promise that waits for all images
+    return Promise.all(promises);
 }
 
 function copyToClipboard(text, glitchImgPath) {
@@ -253,18 +272,29 @@ function loadGallery() {
 /* --- INIT --- */
 
 document.addEventListener("DOMContentLoaded", () => {
-  preloadAssets(artData);
-  loadGallery();
-
-  const backBtn = document.getElementById("back-button");
-  if (backBtn) backBtn.addEventListener("click", closeArtDetails);
-
-  document.fonts.ready.then(() => {
+    // Start preloading immediately
+    const assetPromise = preloadAssets(artData);
     
-    setTimeout(() => {
-      document.getElementById("portfolio-wrapper").style.opacity = "1";
-    document.getElementById("loading-screen").style.display = "none";
-    }, 4000);
-    
-  });
+    loadGallery();
+    initScratch();
+
+    const backBtn = document.getElementById("back-button");
+    if (backBtn) backBtn.addEventListener("click", closeArtDetails);
+
+    // WAIT for both fonts AND images
+    Promise.all([assetPromise, document.fonts.ready]).then(() => {
+        // Add a tiny delay so the user actually sees the wormload.gif smoothly
+        setTimeout(() => {
+            const loader = document.getElementById("loading-screen");
+            const wrapper = document.getElementById("portfolio-wrapper");
+
+            loader.style.opacity = "0";
+            wrapper.style.opacity = "1";
+
+            // Remove loader from DOM after fade-out to prevent interaction issues
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 600);
+        }, 800); 
+    });
 });
