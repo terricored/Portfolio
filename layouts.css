@@ -86,6 +86,32 @@
   max-width: 500px; 
 }
 
+/* --- Mobile Responsive --- */
+@media (max-width: 768px) {
+    .layout-split {
+        /* Switch to 1 column */
+        grid-template-columns: 1fr; 
+        
+        /* Allow height to grow with content on small screens */
+        height: auto; 
+        min-height: 100vh;
+        
+        padding: 80px 5%; /* More vertical space, less horizontal */
+        gap: 20px;
+        text-align: center;
+    }
+
+    .layout-split .art-description {
+        max-width: 100%; /* Let text use full width on mobile */
+        margin: 0 auto;
+    }
+    
+    /* Optional: Ensure image comes first or second */
+    .layout-split .art-visual {
+        order: -1; /* Forces image to the top */
+    }
+}
+
 
 /* --- Layout: Stack --- */
 .layout-stack-continuous .stack-columns {
