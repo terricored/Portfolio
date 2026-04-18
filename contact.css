@@ -61,7 +61,7 @@
     .contact-grid {        
         /* Apply your new mobile-specific gap */
         /* First value is Vertical (Row), second is Horizontal (Column) */
-        gap: 20px 0; 
+        gap: 10px 0; 
         
         align-items: center; /* Center-aligns the links on mobile */
         text-align: center;
