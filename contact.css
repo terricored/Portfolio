@@ -10,7 +10,8 @@
     height: 80vh;
     gap: var(--contact-section-gap);
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: hidden;    
+    padding: var(--page-padding) 0;
 }
 
 /* MAIN REACTION IMAGE (The Left Section) */
