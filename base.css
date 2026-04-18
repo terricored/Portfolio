@@ -89,3 +89,33 @@ a, button, .option, .btn-copy, .btn-open, [role="button"] {
   color: var(--text-main);
   font-family: var(--font-main);
 }
+
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Must be above everything */
+}
+
+.loader-media {
+    width: 120px;   /* Adjust size as needed */
+    height: auto;
+    object-fit: contain;
+    /* Optional: subtle fade-in effect */
+    animation: fadeIn 0.5s ease;
+}
+.loader-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

@@ -37,10 +37,10 @@ const artData = [
     reactionImg: "shy.png",
     glitchGif: "shy2.gif",
     links: [
-      { label: "EMAIL", value: "terricored@gmail.com", url: "mailto:terricored@gmail.com" },
-      { label: "TELEGRAM", value: "@yukozub", url: "https://t.me/yukozub" },
-      { label: "INSTAGRAM", value: "@terricored", url: "https://instagram.com/terricored" },
-      { label: "FACEBOOK", value: "fb.com/shayakhmetovayulya/", url: "https://facebook.com/shayakhmetovayulya/" }
+      { label: "EMAIL", value: "terricored@gmail.com", url: "mailto:terricored@gmail.com", icon: "email.png" },
+      { label: "FACEBOOK", value: "fb.com/shayakhmetovayulya/", url: "https://facebook.com/shayakhmetovayulya/", icon: "fb.png" },
+      { label: "TELEGRAM", value: "@yukozub", url: "https://t.me/yukozub", icon: "tg.png" },
+      { label: "INSTAGRAM", value: "@terricored", url: "https://instagram.com/terricored", icon: "ig.png" }
     ]
   },
   {
@@ -65,7 +65,7 @@ const artData = [
     title: "про мене",
     filename: "mepage1.png",
     desc:
-      "		моя практика з того, що мені вдалось забрати з собою в 2014 році, і  про те, що мені довелось залишити. \n \n 	з  2014 року я  беззупинно шукала тих, чий досвід переселенства перегукнувся би з моїм: по колу кожен день забивала в гугл та твіттер слова «переселенці», «ВПО», «ТОТ». я перечитала всі пости, всі статті, всі вірші, одним словом – все, що мені щастило знайти. я шукала їх, щоб відчувати, що я не одна. \n \n 	я працюю, щоб інші, хто шукає цей зв'язок з домом, мали змогу знайти його через мене.",
+      "\n\n\n\n\n\n\n		моя практика з того, що мені вдалось забрати з собою в 2014 році, і  про те, що мені довелось залишити. \n \n 	з  2014 року я  беззупинно шукала тих, чий досвід переселенства перегукнувся би з моїм: по колу кожен день забивала в гугл та твіттер слова «переселенці», «ВПО», «ТОТ». я перечитала всі пости, всі статті, всі вірші, одним словом – все, що мені щастило знайти. я шукала їх, щоб відчувати, що я не одна. \n \n 	я працюю, щоб інші, хто шукає цей зв'язок з домом, мали змогу знайти його через мене.",
     year: "",
     medium: "",
     type: "art-split"
