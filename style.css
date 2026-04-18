@@ -36,12 +36,6 @@
     filter: brightness(1.2) contrast(1.1);
 }
 
-/* 5. Firefox Fallback (Firefox doesn't support images yet) */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--text-dim) transparent;
-}
-
 @media (max-width: 768px) {
     ::-webkit-scrollbar {
         width: 4px; /* Thin, subtle line for mobile */
