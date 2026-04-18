@@ -28,19 +28,26 @@ function preloadAssets(artPieces) {
                 if (row.media && row.media[0]) imagesToPreload.push(`${GITHUB_ASSETS}${row.media[0].src}`);
             });
         }
+        if (art.images && Array.isArray(art.images)) {
+            art.images.forEach(imgObj => {
+                if (imgObj.src) {
+                    imagesToPreload.push(`${GITHUB_ASSETS}${imgObj.src}`);
+                }
+            });
+        }
     });
 
-    // 2. Create a Promise for every image
-    const promises = imagesToPreload.map(src => {
+   const uniqueImages = [...new Set(imagesToPreload)];
+
+    const promises = uniqueImages.map(src => {
         return new Promise((resolve) => {
             const img = new Image();
             img.src = src;
             img.onload = resolve;
-            img.onerror = resolve; // Continue even if one image fails
+            img.onerror = resolve; 
         });
     });
 
-    // 3. Return a single promise that waits for all images
     return Promise.all(promises);
 }
 
