@@ -32,7 +32,7 @@
   --text-dim: rgb(67,67,67);
 
   /* --- Spacing & Proportions --- */
-  --page-padding: 80px;      /* Top padding for detail pages */
+  --page-padding: 0px;      /* Top padding for detail pages */
   --img-max-height: 90vh;    /* Your 90% viewport height rule */
   --chess-gap: 150px;        /* Vertical space between chess rows */
   --stack-gap: 80px;         /* Gap between image and info in Stack layout */
