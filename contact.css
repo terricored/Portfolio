@@ -42,7 +42,7 @@
 .contact-grid-title {
     font-size: 4rem;
     /* Scaled up to match the larger section */
-    color: var(--accent);
+    color: var(--text-dim);
     margin-bottom: 3rem;
     text-transform: uppercase;
 }
