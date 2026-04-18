@@ -250,11 +250,64 @@ function loadGallery() {
   });
 }
 
+const canvas = document.getElementById('scratch-canvas');
+const ctx = canvas.getContext('2d');
+let points = [];
+
+// Resize canvas to fill window
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+window.addEventListener('mousemove', (e) => {
+    points.push({
+        x: e.clientX,
+        y: e.clientY,
+        age: 0, // Age of the point in frames
+        force: Math.random() * 2 // Randomizes line thickness slightly
+    });
+});
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.strokeStyle = '#888'; // Match your --text-dim color
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    for (let i = 1; i < points.length; i++) {
+        const p1 = points[i - 1];
+        const p2 = points[i];
+        
+        // Calculate opacity based on age (fades over ~2 seconds)
+        const opacity = Math.max(0, 1 - p2.age / 120); 
+        ctx.strokeStyle = `rgba(67, 67, 67, ${opacity})`;
+        ctx.lineWidth = (2 + p2.force) * opacity;
+
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+        
+        p2.age++;
+    }
+
+    // Remove "dead" points to save memory
+    points = points.filter(p => p.age < 120);
+
+    requestAnimationFrame(animate);
+}
+
+
 /* --- INIT --- */
 
 document.addEventListener("DOMContentLoaded", () => {
   preloadAssets(artData);
   loadGallery();
+  animate();
 
   const backBtn = document.getElementById("back-button");
   if (backBtn) backBtn.addEventListener("click", closeArtDetails);

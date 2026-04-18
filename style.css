@@ -76,3 +76,13 @@
     background-clip: padding-box !important;
     border: 4px solid transparent !important;
 }
+
+#scratch-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Crucial: let clicks pass through */
+    z-index: 9998; /* Just below your custom cursor */
+}
