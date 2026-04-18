@@ -58,10 +58,7 @@
 
 /* --- Mobile Responsive --- */
 @media (max-width: 768px) {
-    .contact-grid {
-        /* Switch to 1 column so links stack vertically */
-        grid-template-columns: 1fr;
-        
+    .contact-grid {        
         /* Apply your new mobile-specific gap */
         /* First value is Vertical (Row), second is Horizontal (Column) */
         gap: 20px 0; 

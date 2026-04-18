@@ -5,3 +5,34 @@
 @import url("chess.css");
 @import url("contact.css");
 @import url("footer.css");
+
+/* --- Custom Scrollbar --- */
+
+/* 1. The Width of the track */
+::-webkit-scrollbar {
+  width: 8px;              /* Vertical scrollbar width */
+  height: 8px;             /* Horizontal scrollbar height */
+}
+
+/* 2. The Track (the background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: var(--bg-color); 
+}
+
+/* 3. The Thumb (the actual draggable slider) */
+::-webkit-scrollbar-thumb {
+  background: var(--text-dim);
+  border-radius: 10px;     /* Makes it a rounded pill shape */
+  border: 2px solid var(--bg-color); /* Creates "padding" around the thumb */
+}
+
+/* 4. Hover state for the thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-main); /* Brightens when you grab it */
+}
+
+/* --- Firefox Support --- */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-dim) var(--bg-color);
+}

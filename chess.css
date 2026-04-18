@@ -132,13 +132,19 @@
     .chess-row,
     .chess-row:nth-child(even) {
         display: flex;
-        flex-direction: column;
+        flex-direction: column; /* Stacks vertically */
         direction: ltr;
         gap: 30px;
     }
 
-    .chess-info-box,
-    .chess-row:nth-child(even) .chess-info-box {
+    /* 1. Force the image container to the top */
+    .chess-visual-box {
+        order: 1;
+    }
+
+    /* 2. Force the text container to the bottom */
+    .chess-info-box {
+        order: 2;
         text-align: center !important;
     }
 }
