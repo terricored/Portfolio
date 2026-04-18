@@ -136,10 +136,6 @@
         direction: ltr;
         gap: 30px;
     }
-    .chess-info-box h2 {
-        order: 0;
-        text-align: center !important;
-    }
 
     /* 1. Force the image container to the top */
     .chess-visual-box {
