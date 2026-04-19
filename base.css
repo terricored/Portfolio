@@ -65,6 +65,41 @@ button {
   cursor: pointer;
 }
 
+
+#back-button {
+    /* 1. Reset everything */
+    background-color: red !important;
+    border: none !important;
+    outline: none;
+    cursor: pointer;
+    
+    /* 2. Positioning & Depth */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10000;
+
+    /* 3. The Image */
+    /* MAKE SURE THIS LINK IS THE "RAW" VERSION */
+    background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/backbutton.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: contain; /* Or '100% 100%' if you want it to stretch */
+
+    /* 4. Sizing (Essential!) */
+    /* If your image is 100px wide, set these accordingly */
+    width: 120px; 
+    height: 60px;
+
+    /* 5. Text Styling */
+    color: white;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
 /* Selection Highlight */
 ::selection {
   background-color: var(--text-dim);
