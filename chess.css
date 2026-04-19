@@ -70,7 +70,21 @@
     opacity: 0.5;
     color: var(--text-dim);
     font-size: var(--fs-chess-arrow);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100px; 
+    overflow: visible;
     animation: bounce 2s infinite;
+}
+
+.chess-header .scroll-hint img {
+    width: auto;
+    height: 70px; /* Force a consistent height */
+    display: block;
+    pointer-events: none;
 }
 
 /* Optional: Subtle bounce for the arrow */

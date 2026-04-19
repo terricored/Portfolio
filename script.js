@@ -122,8 +122,9 @@ const Layouts = {
             <h1 class="art-title">${art.title}</h1>
             ${renderMeta(art.year, art.medium)}
             <p class="art-description">${art.desc}</p>
-            <div class="scroll-hint">↓</div>
-        </div>
+             <div class="scroll-hint">
+    <img src="https://raw.githubusercontent.com/terricored/Portfolio/main/assets/pointerforplajka.png" alt="↓" class="custom-arrow">
+</div>
             <div class="chess-body">
                 ${art.rows.map((row, i) => `
                     <section class="chess-row ${i % 2 !== 0 ? 'flipped' : ''}">

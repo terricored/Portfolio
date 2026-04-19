@@ -107,6 +107,17 @@ button {
     transition: transform 0.2s ease;
 }
 
+@media (max-width: 900px) {
+
+    #back-button {
+        position: fixed !important;
+        top: -10px !important; 
+        left: -20px !important;
+        transform: none !important; 
+        margin: 0 !important;
+    }
+}
+
 /* Selection Highlight */
 ::selection {
   background-color: var(--text-dim);
