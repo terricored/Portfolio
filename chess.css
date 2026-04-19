@@ -31,6 +31,7 @@
 .chess-header {
     text-align: center;
     align-items: center;
+    justify-content: center;
     margin-bottom: 100px;
     min-height: 100dvh;      /* Takes up full screen height */
 }
