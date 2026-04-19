@@ -122,9 +122,7 @@ const Layouts = {
             <h1 class="art-title">${art.title}</h1>
             ${renderMeta(art.year, art.medium)}
             <p class="art-description">${art.desc}</p>
-            <div class="scroll-hint" style="margin-top: auto; padding-top: 20px; opacity: 0.5; font-size: 0.8rem;">
-                                    ↓ 
-            </div>
+            <div class="scroll-hint">↓</div>
         </div>
             <div class="chess-body">
                 ${art.rows.map((row, i) => `
