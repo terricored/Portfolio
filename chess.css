@@ -103,6 +103,7 @@
     margin-bottom: var(--chess-gap);
     align-items: start;
     scroll-margin-top: var(--snap-offset);
+    white-space: pre-wrap;
 }
 
 /* --- Alternating Flip Logic --- */
