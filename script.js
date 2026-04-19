@@ -119,7 +119,7 @@ const Layouts = {
   "chess": (art) => `
         <div class="layout-chess">
             <div class="chess-header">
-            <h1 class="art-title">${art.title2}</h1>
+            <h1 class="art-title">${art.title}</h1>
             <p class="art-description">${art.desc}</p>
             <div class="scroll-hint">
     <img src="https://raw.githubusercontent.com/terricored/Portfolio/main/assets/pointerforplajka.png" alt="↓" class="custom-arrow">
@@ -157,7 +157,7 @@ const Layouts = {
           </div>
 
           <div class="contact-content">
-              <h1 class="contact-grid-title">${art.title}</h1>
+              <h1 class="contact-grid-title">${art.title2}</h1>
               
               <div class="contact-grid">
                   ${art.links.map(link => `
