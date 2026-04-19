@@ -119,11 +119,14 @@ const Layouts = {
   "chess": (art) => `
         <div class="layout-chess">
             <div class="chess-header">
-                <div class="snap-anchor"></div>
-                <h1 class="art-title">${art.title}</h1>
-                ${renderMeta(art.year, art.medium)}
-                <p class="art-description">${art.desc}</p>
+            <h1 class="art-title">${art.title}</h1>
+            ${renderMeta(art.year, art.medium)}
+            <p class="art-description">${art.desc}</p>
+            
+            <div class="scroll-hint" style="margin-top: auto; padding-top: 20px; opacity: 0.5; font-size: 0.8rem;">
+                ↓ гортайте нижче
             </div>
+        </div>
             <div class="chess-body">
                 ${art.rows.map((row, i) => `
                     <section class="chess-row ${i % 2 !== 0 ? 'flipped' : ''}">
