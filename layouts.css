@@ -160,6 +160,27 @@
         max-width: 100%;
         height: auto;
     }
+.stack-info-col {
+        position: relative; 
+        top: 0;
+        order: 1; 
+        
+        /* THE FIX: */
+        text-align: right; /* Aligns title, year, and description to the right */
+        padding-top: 80px;  /* Creates vertical space so it doesn't sit under the button */
+        padding-right: 10px; /* Optional: small nudge from the right edge */
+        padding-bottom: 20px;
+        
+        /* Ensures the flex items inside (if any) also align right */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; 
+    }
+
+    /* Optional: If you have a specific year/medium meta row, ensure it aligns right too */
+    .art-meta {
+        justify-content: flex-end;
+    }
 }
 
 /* Back Button */
