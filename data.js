@@ -75,7 +75,6 @@ const artData = [
     filename: "vpo1234.png",
     desc: "цикл робіт, зосереджений на досвіді вимушенного переміщення",
     year: "",
-    medium: "",
     type: "chess",
     rows: [
       {
@@ -136,7 +135,6 @@ const artData = [
   {
     title: "зіни",
     filename: "nullimage@0,33x.png",
-    year: "",
     type: "chess",
     desc: "мої самвидави, арт-буки та зіни",
     rows: [
