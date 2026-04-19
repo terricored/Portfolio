@@ -122,6 +122,15 @@ const artData = [
         media: [
           { type: "image", src: "gromko.png" }
         ]
+      },
+      {
+        title: "Не напитись",
+        year: "2025",
+        medium: "офорт на папері, дошки",
+        desc: "Присвячення водам Донбасу, його жителям та шахті Юнком",
+        media: [
+          { type: "image", src: "nenapytys.png" }
+        ]
       }]
       },
   {
