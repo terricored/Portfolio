@@ -47,7 +47,7 @@
     background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/plajkahoriz.png");
     
     /* 1. Set the size to 75% (100% minus 12.5% padding on both sides) */
-    background-size: 75% 75%; 
+    background-size: 75% 60%; 
     
     /* 2. Place the background */
     background-position: 50% 30%; 
