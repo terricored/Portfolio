@@ -75,8 +75,8 @@ button {
     
     /* 2. Set explicit dimensions */
     /* If your image is being cut off, make these larger */
-    width: 170px !important; 
-    height: 170px !important;
+    width: 180px !important; 
+    height: 180px !important;
 
     /* 3. The Image (Longhand) */
     background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/backbutton.png") !important;
