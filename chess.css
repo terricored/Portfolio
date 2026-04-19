@@ -42,6 +42,21 @@
     box-sizing: border-box;
     padding: 60px 20px; /* Top/bottom padding for the arrow/content */
     position: relative;
+
+/* Background Logic */
+    background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/shy.png");
+    
+    /* 1. Set the size to 50% (100% minus 25% padding on both sides) */
+    background-size: 50% 50%; 
+    
+    /* 2. Center the background */
+    background-position: center center; 
+    
+    /* 3. Prevent tiling */
+    background-repeat: no-repeat;
+    
+    /* Optional: Ensure the background color fills the 25% padding area */
+    background-color: transparent;
 }
 
 /* 1. Push the title/desc group to the center */
