@@ -26,7 +26,8 @@ const artData = [
     ]
   },
   {
-    title: "зв`язатись зі мною:",
+    title: "контакти",
+    title2: "зв`язатись зі мною:",
     filename: "shy.png",
     desc:
       "terricored@gmail.com \n tg @yukozub \n inst @terricored \n facebook.com/shayakhmetovayulya/",
