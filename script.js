@@ -120,7 +120,6 @@ const Layouts = {
         <div class="layout-chess">
             <div class="chess-header">
             <h1 class="art-title">${art.title}</h1>
-            ${renderMeta(art.year, art.medium)}
             <p class="art-description">${art.desc}</p>
             <div class="scroll-hint">
     <img src="https://raw.githubusercontent.com/terricored/Portfolio/main/assets/pointerforplajka.png" alt="↓" class="custom-arrow">
