@@ -52,7 +52,7 @@
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    gap: 30px 100px;
+    gap: 10px 25px;
     /* Wider gaps to fill the expanded area */
     align-items: end;
 }
