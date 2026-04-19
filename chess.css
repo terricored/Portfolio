@@ -49,8 +49,8 @@
     /* 1. Set the size to 75% (100% minus 12.5% padding on both sides) */
     background-size: 75% 75%; 
     
-    /* 2. Center the background */
-    background-position: center center; 
+    /* 2. Place the background */
+    background-position: 50% 30%; 
     
     /* 3. Prevent tiling */
     background-repeat: no-repeat;
