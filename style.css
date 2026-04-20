@@ -50,7 +50,7 @@
 /* 1. Target EVERYTHING that scrolls */
 ::-webkit-scrollbar,
 *::-webkit-scrollbar {
-    width: 24px !important;
+    width: 48px !important;
     display: block !important;
 }
 
