@@ -1,6 +1,6 @@
 :root {
   /* --- Fonts --- */
-  --font-main: "CustomFont", "CustomFont1", sans-serif;
+  --font-main: "CustomFullFont", sans-serif;
   --font-primary: "CustomFont";
   --font-secondary: "CustomFont1";
 

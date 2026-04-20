@@ -11,6 +11,12 @@
   font-weight: normal; font-style: normal; font-display: swap;
 }
 
+@font-face {
+  font-family: "CustomFullFont";
+  src: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/testfont3.ttf") format("truetype");
+  font-weight: normal; font-style: normal; font-display: swap;
+}
+
 /* --- Resets & Global Styles --- */
 html, body {
   margin: 0;
