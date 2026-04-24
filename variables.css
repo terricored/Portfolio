@@ -56,8 +56,8 @@
   --footer-opacity: 0.3;
 
   /* DEFAULT STATE (Hand) */
-  --cursor-default: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hand1.png") 0 0, auto;
+  --cursor-default: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hand1.webp") 0 0, auto;
 
   /* POINTER STATE (Hand 2 - for links/buttons) */
-  --cursor-pointer: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hand2.png") 0 0, pointer;
+  --cursor-pointer: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hand2.webp") 0 0, pointer;
 }

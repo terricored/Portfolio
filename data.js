@@ -1,7 +1,6 @@
 const artData = [
   {
     title: "впо",
-    filename: "vpo1234.png",
     desc: "цикл робіт, зосереджений на досвіді вимушенного переміщення",
     year: "",
     type: "chess",
@@ -13,7 +12,7 @@ const artData = [
         medium: "полотно, олія, валіза, пісок",
         desc: " Необхідність звузити своє життя до розміру валізи.\n \n Поза та кольорове рішення відсилають до пози ембріону та кольорів, типових для зображення дитини в утробі і символізують початок нового життя.",
         media: [
-          { type: "image", src: "vpo1234.png" }
+          { type: "image", src: "vpo1234.webp" }
         ]
       },
       {
@@ -22,7 +21,7 @@ const artData = [
         medium: "літографія",
         desc: " Минулого року прилетіло біля рогатого терикону. Він – мій улюблений, хоч я ніколи його й не бачила.\n \n В новинах не казали, чи вцілів він, і я декілька тижнів не могла відпустити думку, що так ніколи його й не побачу.\n \n На відстані все, що лишилось в окупації, поступово набуває міфологічного характеру. На реальні, фізичні, але недосяжні покинуті речі  та місця напливає туман ностальгії, і всі вони перетворюються в моїй голові на маленький ляльковий будиночок, а я щодня копирсаюся в ньому, наче в дитинстві.",
         media: [
-          { type: "image", src: "gra.png" }
+          { type: "image", src: "gra.webp" }
         ]
       },
       {
@@ -31,7 +30,7 @@ const artData = [
         medium: "шовкодрук на кальці",
         desc: " Більше ніде не відчуваю себе на своєму місці.\n \n Не дивуюсь тому, що так воно є в тих містах, що мене прихистили – я знаю, що ніколи не пристосуюсь до них на 100%, тому вже навіть не намагаюсь.\n \n Більше мене лякає думка про те, що по поверненні додому я вже не зможу прижитись там назад.",
         media: [
-          { type: "image", src: "au.png" }
+          { type: "image", src: "au.webp" }
         ]
       },
       {
@@ -40,7 +39,7 @@ const artData = [
         medium: "літографія",
         desc: " Чим більше думаю про дім, тим далі він від мене.\n \n Речі, які на новому місці я роблю, щоб продовжити рух (який, в моїй уяві, неодмінно приведе мене назад, додому), тільки прив’язують мене до нового місця.\n \n Думка про повернення додому починає здаватись незручною. Невчасною.\n \n В такі моменти я ненавиджу себе ще більше.",
         media: [
-          { type: "image", src: "dim.png" }
+          { type: "image", src: "dim.webp" }
         ]
       },
       {
@@ -49,7 +48,7 @@ const artData = [
         medium: "літографія",
         desc: " Рідні мені місця я бачу щодня - в телеграм-помийці ДОНЕЦК Z | ВОЕННЬІЕ СВОДКИ | МАКЕЕВКА, але тільки тоді, коли війна вже спотворила їх.\n \n Сповіщення про пости з усіх місцевих каналів ввімкнені в мене абсолютно завжди, 24 на 7,  сім днів на тиждень. Кожне “Громко в Макєєвкє” змушує мене невідкладно відкривати їх.\n \n В кожному з цих постів я боюсь побачити фотографію свого будинку.",
         media: [
-          { type: "image", src: "gromko.png" }
+          { type: "image", src: "gromko.webp" }
         ]
       },
       {
@@ -58,13 +57,12 @@ const artData = [
         medium: "офорт, дошки",
         desc: " Присвячення водам Донбасу, його жителям та шахті Юнком",
         media: [
-          { type: "image", src: "nenapytys.png" }
+          { type: "image", src: "nenapytys.webp" }
         ]
       }]
   },
   {
     title: "зіни",
-    filename: "nullimage@0,33x.png",
     type: "chess",
     pos: 2,
     desc: "мої самвидави, арт-буки та зіни",
@@ -75,7 +73,7 @@ const artData = [
         medium: "дошки, левкас, олійні фарби,\n  \n цифровий друк на папері",
         desc: "Проект, присвячений речам,\n які ми беремо з собою,\n коли покидаємо дім.\n \n В ході анкетування було опитано\n29 внутрішньо переміщених осіб\nзі сходу та півдня України.\n \n7 з їх особистих історій\n увійшло до цієї збірки\n на основі серії\n левкасів-ілюстрацій.",
         media: [
-          { type: "image", src: "zinshzvr.png" }
+          { type: "image", src: "zinshzvr.webp" }
         ]
       },
       {
@@ -84,8 +82,8 @@ const artData = [
         medium: "пластик, папір, калька, туш",
         desc: " Низка спогадів про дім, що накладається на подорож до вільного Ірпіня.",
         media: [
-          { type: "image", src: "zinirpin2.png" },
-          { type: "image", src: "zinirpinpage.png" }
+          { type: "image", src: "zinirpin2.webp" },
+          { type: "image", src: "zinirpinpage.webp" }
         ]
       },
       {
@@ -94,7 +92,7 @@ const artData = [
         medium: "папір, гелева ручка",
         desc: " словникова довідка.",
         media: [
-          { type: "image", src: "zinhiraeth.png" }
+          { type: "image", src: "zinhiraeth.webp" }
         ]
       },
       {
@@ -103,42 +101,40 @@ const artData = [
         medium: "папір, гелева ручка",
         desc: " ... і про те, на що він буває подібний.",
         media: [
-          { type: "image", src: "zinmoon.png" }
+          { type: "image", src: "zinmoon.webp" }
         ]
       },
     ]
   },
   {
     title: "бестіаріат",
-    filename: "nullimage@0,33x.png",
     desc: "химерний кольоровий зоопарк.",
     year: "2025",
     medium: "акварель, папір",
     type: "image-stack",
     pos: 3,
     images: [
-      { src: "bestiariat.png", overlap: 0 }
+      { src: "bestiariat.webp", overlap: 0 }
     ]
   },
   {
     title: "уродікі",
-    filename: "nullimage@0,33x.png",
     desc: "графічна серія, присвячена відчуттю безпорадності.",
     year: "2025-",
     medium: "папір, гелева ручка",
     type: "image-stack",
     pos: 4,
     images: [
-      { src: "ur1.png", overlap: 0 },
-      { src: "ur2.png", overlap: 0 },
-      { src: "ur3.png", overlap: 0 },
-      { src: "ur4.png", overlap: 0 },
-      { src: "ur5.png", overlap: 0 }
+      { src: "ur1.webp", overlap: 0 },
+      { src: "ur2.webp", overlap: 0 },
+      { src: "ur3.webp", overlap: 0 },
+      { src: "ur4.webp", overlap: 0 },
+      { src: "ur5.webp", overlap: 0 }
     ]
   },
   {
     title: "екстра",
-    filename: "nullimage@0,33x.png",
+    filename: "nullimage@0,33x.webp",
     desc: "тут скоро щось буде",
     year: "",
     medium: "",
@@ -147,8 +143,8 @@ const artData = [
   },
   {
     title: "контакти",
-    title2: "зв`язатись зі мною:",
-    filename: "shy.png",
+    title2: "зв'язатись зі мною:",
+    filename: "shy.webp",
     desc:
       "terricored@gmail.com \n tg @yukozub \n inst @terricored \n facebook.com/shayakhmetovayulya/",
     year: "2025",
@@ -156,18 +152,17 @@ const artData = [
     type: "contact",
     pos: 6,
     desc: "",
-    reactionImg: "shy.png",
-    glitchGif: "shy2.gif",
+    reactionImg: "shy.webp",
+    glitchGif: "shy2.webp",
     links: [
-      { label: "EMAIL", value: "terricored@gmail.com", url: "mailto:terricored@gmail.com", icon: "email.png" },
-      { label: "FACEBOOK", value: "fb.com/shayakhmetovayulya/", url: "https://facebook.com/shayakhmetovayulya/", icon: "fb.png" },
-      { label: "TELEGRAM", value: "@yukozub", url: "https://t.me/yukozub", icon: "tg.png" },
-      { label: "INSTAGRAM", value: "@terricored", url: "https://instagram.com/terricored", icon: "ig.png" }
+      { label: "EMAIL", value: "terricored@gmail.com", url: "mailto:terricored@gmail.com", icon: "email.webp" },
+      { label: "FACEBOOK", value: "fb.com/shayakhmetovayulya/", url: "https://facebook.com/shayakhmetovayulya/", icon: "fb.webp" },
+      { label: "TELEGRAM", value: "@yukozub", url: "https://t.me/yukozub", icon: "tg.webp" },
+      { label: "INSTAGRAM", value: "@terricored", url: "https://instagram.com/terricored", icon: "ig.webp" }
     ]
   },
   {
     title: "cv",
-    filename: "nullimage@0,33x.png",
     desc:
       "Освіта: \n > Одеський художній фаховий коледж ім. М.Б. Грекова (2017 – 2021) \n > Національна академія образотворчого мистецтва та архітектури (2021 – теперішній час) \n \n Обрані виставки та проекти: \n > 1-е місце в н-ції “Друкована графіка” Міжнародного конкурсу  «INTER INTRO BOOK PRINT» (Київ, 2024) \n > Виставка «Графічні історії», Ірпінський історико-краєзнавчий музей (Ірпінь, 2024) \n > Виставка «Трикутник та пряма лінія», Львівський муніципальний мистецький центр, Gareleya Neotodryosh (Львів, 2023) \n > Каталог «Погляд на дві тисячі ярдів», Gareleya Neotodryosh (Львів, 2022) \n> Виставка «Гучна тиша» у рамках фестивалю LE FESTIVAL DES CULTURES EST-OUEST 6e ÉDITION (Париж, 2022) \n> Виставка «Межі» у рамках проекту студентів Львівської академії мистецтва «Буквально андеґраундна виставка» (Львів, 2022) \n > «Ескіз-пленер-сувенір» – колаборація молодих художників із Музеєм сучасного мистецтва Одеси під кураторством Ігоря Гусєва та Сергія Ануфрієва (Одеса, 2020)\n > «Розфокус» – студентська виставка, Одеський художній фаховий коледж ім. М.Б. Грекова (Одеса, 2019)  \n > «Паралелі» – студентська виставка в Одеському муніципальному музеї Особистих колекцій ім. О.В. Блещунова, Одеса (Одеса, 2019) ",
     year: "2026",
@@ -178,7 +173,7 @@ const artData = [
   },
   {
     title: "про мене",
-    filename: "mepage1.png",
+    filename: "mepage1.webp",
     desc:
       "\n моя практика з того, що мені вдалось забрати з собою в 2014 році, і  про те, що мені довелось залишити.\n \n коли я тільки стала переселенкою, тема війни багатьом здавалася локальною, незручною та нав'язливою, в розмовах зі мною люди часто намагались зам'яти її та перевести мою увагу на те, що тепер я живу в іншому місті, і маю прагнути відчувати себе його частиною. панувало уявлення, що війна - як інфекційне захворювання, і якщо посадити цю тему на карантин, то війна не торкнеться інших територій. ми знаємо сьогодні, що це уявлення хибне, але тоді я відчувала себе покинутою та дефективною, і щоб зарадити собі, я шукала будь-які медіа, що висвітлювали б досвід інших переселенців. \n \n я працюю, щоб інші, хто шукає цей зв'язок з домом, мали змогу знайти його через мене.",
     year: "",

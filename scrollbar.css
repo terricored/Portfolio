@@ -1,6 +1,6 @@
 /* 1. The main scrollbar track */
 ::-webkit-scrollbar {
-    width: 20px; /* Adjust this to fit your juk.png width */
+    width: 20px;
 }
 
 /* 2. The background of the scrollbar */
@@ -10,7 +10,7 @@
 
 /* 3. The 'Juk' thumb */
 ::-webkit-scrollbar-thumb {
-    background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/scroller.png");
+    background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/scroller.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -55,11 +55,11 @@
 /* 3. The Beetle (Juk) */
 ::-webkit-scrollbar-thumb,
 *::-webkit-scrollbar-thumb {
-    background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/scroller2.png") !important;
+    background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/scroller2.webp") !important;
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
-    width: 80px; /* Adjust this to fit your juk.png width */
+    width: 80px;
     
     /* Ensure it has physical presence */
     min-height: 60px !important;
@@ -71,5 +71,5 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/scroller1.png") !important;
+    background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/scroller1.webp") !important;
 }

@@ -35,7 +35,7 @@
 .base-layer {
   position: absolute;
   inset: 0;
-  background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/default_centern.png");
+  background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/default_centern.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -47,7 +47,7 @@
 .hover-mid-layer {
   position: absolute;
   inset: 0;
-  background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hover_centern.png");
+  background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hover_centern.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

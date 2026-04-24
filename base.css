@@ -94,7 +94,7 @@ button {
   height: 180px !important;
 
   /* 3. The Image (Longhand) */
-  background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/backbutton.png") !important;
+  background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/backbutton.webp") !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
 
@@ -115,7 +115,6 @@ button {
   opacity: 20%;
 }
 
-/* Optional: Add a hover effect for the PNG */
 #back-button:hover {
   transform: scale(1.1);
   opacity: 100%;
@@ -205,4 +204,9 @@ body.is-clicking * {
   to {
     opacity: 1;
   }
+}
+
+/* Target the main container that holds your changing content */
+#app, main, .content-wrapper { 
+    animation: fadeIn 0.5s ease-out 0.2s both; 
 }

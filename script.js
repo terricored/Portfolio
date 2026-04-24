@@ -1,5 +1,5 @@
 const GITHUB_ASSETS = "https://raw.githubusercontent.com/terricored/Portfolio/main/assets/";
-const DEFAULT_IMG = `${GITHUB_ASSETS}default_centern.png`;
+const DEFAULT_IMG = `${GITHUB_ASSETS}default_centern.webp`;
 
 /** * HELPER: Generates consistent meta-info HTML 
  * This makes it easy to refactor margins/fonts for all pages at once.
@@ -15,9 +15,10 @@ function preloadAssets(artPieces) {
     // 1. Collect all URLs to preload
     const imagesToPreload = [
         DEFAULT_IMG,
-        `${GITHUB_ASSETS}wormload.gif`, // Preload the loader itself for next time
-        `${GITHUB_ASSETS}juk.png`, // Preload the loader itself for next time
-        `${GITHUB_ASSETS}shy2.gif`
+        `${GITHUB_ASSETS}wormload.webp`, // Preload the loader itself for next time
+        `${GITHUB_ASSETS}juk.webp`, // Preload the loader itself for next time
+        `${GITHUB_ASSETS}shy2.webp`,
+        `${GITHUB_ASSETS}plajkahoriz.webp`
     ];
 
     artPieces.forEach(art => {
@@ -25,7 +26,12 @@ function preloadAssets(artPieces) {
         // If your data has nested rows (like in 'chess' layout), grab those too
         if (art.rows) {
             art.rows.forEach(row => {
-                if (row.media && row.media[0]) imagesToPreload.push(`${GITHUB_ASSETS}${row.media[0].src}`);
+                // Preload EVERY image in the media array, not just [0]
+                if (row.media && Array.isArray(row.media)) {
+                    row.media.forEach(item => {
+                        imagesToPreload.push(`${GITHUB_ASSETS}${item.src}`);
+                    });
+                }
             });
         }
         if (art.images && Array.isArray(art.images)) {
@@ -72,7 +78,7 @@ const Layouts = {
     "art-split": (art) => `
         <div class="layout-split">
             <div class="art-visual">
-                <img src="${GITHUB_ASSETS}${art.filename}" alt="${art.title}">
+                <img src="${GITHUB_ASSETS}${art.filename}" alt="${art.title}" decoding="async">
             </div>
             <div class="art-info">
                 <h1 class="art-title">${art.title}</h1>
@@ -89,7 +95,7 @@ const Layouts = {
                 ${renderMeta(art.year, art.medium)}
             </div>
             <div class="art-visual">
-                <img src="${GITHUB_ASSETS}${art.filename}" alt="${art.title}">
+                <img src="${GITHUB_ASSETS}${art.filename}" alt="${art.title}" decoding="async">
             </div>
             <div class="art-info footer-info">
                 <p class="art-description">${art.desc}</p>
@@ -103,7 +109,7 @@ const Layouts = {
                 <div class="stack-visual-col">
                     ${art.images.map((img, i) => `
                         <div class="stack-frame" style="z-index: ${i}; margin-top: -${img.overlap || 0}px;">
-                            <img src="${GITHUB_ASSETS}${img.src}" alt="Frame ${i}">
+                            <img src="${GITHUB_ASSETS}${img.src}" alt="Frame ${i}" decoding="async">
                         </div>
                     `).join('')}
                 </div>
@@ -122,7 +128,7 @@ const Layouts = {
                 <h1 class="art-title">${art.title}</h1>
                 <p class="art-description">${art.desc}</p>
                 <div class="scroll-hint">
-                    <img src="https://raw.githubusercontent.com/terricored/Portfolio/main/assets/pointerforplajka.png" alt="↓" class="custom-arrow">
+                    <img src="https://raw.githubusercontent.com/terricored/Portfolio/main/assets/pointerforplajka.webp" alt="↓" class="custom-arrow" decoding="async">
                 </div>
             </div>
             <div class="chess-body">
@@ -136,7 +142,7 @@ const Layouts = {
                         </div>
                         <div class="chess-visual-box">
                             ${row.media.map(item => `
-                                <img src="${GITHUB_ASSETS}${item.src}" alt="${row.title}">
+                                <img src="${GITHUB_ASSETS}${item.src}" alt="${row.title}" decoding="async">
                             `).join('')}
                         </div>
                     </section>
@@ -146,7 +152,7 @@ const Layouts = {
     `,
 
     "contact": (art) => {
-        const copyIconPath = `${GITHUB_ASSETS}copy.png`;
+        const copyIconPath = `${GITHUB_ASSETS}copy.webp`;
         const glitchPath = `${GITHUB_ASSETS}${art.glitchGif}`;
 
         return `
@@ -155,7 +161,7 @@ const Layouts = {
               <img id="contact-status-img" 
                    src="${GITHUB_ASSETS}${art.reactionImg}" 
                    data-default="${GITHUB_ASSETS}${art.reactionImg}" 
-                   alt="Status">
+                   alt="Status" decoding="async">
           </div>
 
           <div class="contact-content">
@@ -166,11 +172,11 @@ const Layouts = {
                       <div class="contact-card">
                           <div class="icon-wrapper">
                               <a href="${link.url}" target="_blank" class="main-icon-link">
-                                  <img src="${GITHUB_ASSETS}${link.icon}" class="big-brand-icon" alt="${link.type}">
+                                  <img src="${GITHUB_ASSETS}${link.icon}" class="big-brand-icon" alt="${link.type}" decoding="async">
                               </a>
                               <button class="mini-copy-btn" 
                                       onclick="copyToClipboard('${link.value}', '${glitchPath}')">
-                                  <img src="${copyIconPath}" alt="Copy">
+                                  <img src="${copyIconPath}" alt="Copy" decoding="async">
                               </button>
                           </div>
                       </div>
@@ -196,9 +202,13 @@ function showArtDetails(art) {
         return
     }
 
-    // Use the Layouts map to inject HTML
+    container.style.animation = 'none';
+
     const renderFn = Layouts[art.type] || Layouts["art-full"];
     container.innerHTML = renderFn(art);
+
+    void container.offsetWidth;
+    container.style.animation = 'fadeIn 0.5s ease-out 0.2s both';
 
     document.getElementById("main-page").classList.remove("active");
     detailPage.classList.add("active");
@@ -265,7 +275,7 @@ function loadGallery() {
         const snappedAngle = (Math.round((360 + finalAngle) / 45) * 45) % 360;
 
         opt.addEventListener("mouseenter", () => {
-            overlayLayer.style.backgroundImage = `url('${GITHUB_ASSETS}${snappedAngle}n.png')`;
+            overlayLayer.style.backgroundImage = `url('${GITHUB_ASSETS}${snappedAngle}.webp')`;
             midLayer.classList.add("active");
             overlayLayer.classList.add("active");
         });
