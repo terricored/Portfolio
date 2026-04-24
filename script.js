@@ -57,17 +57,25 @@ function preloadAssets(artPieces) {
     return Promise.all(promises);
 }
 
-function copyToClipboard(text, glitchImgPath) {
+function copyToClipboard(btn, text, glitchImgPath) {
     navigator.clipboard.writeText(text).then(() => {
         const statusImg = document.getElementById('contact-status-img');
-        if (!statusImg) return;
+        
+        const iconImg = btn.querySelector('img');
+
+        if (!statusImg || !iconImg) return;
 
         const defaultImg = statusImg.getAttribute('data-default');
+        const defaultIcon = iconImg.src;
+
+        const successIcon = `${GITHUB_ASSETS}shy2.webp`;
 
         statusImg.src = glitchImgPath;
+        iconImg.src = successIcon;
 
         setTimeout(() => {
             statusImg.src = defaultImg;
+            iconImg.src = defaultIcon;
         }, 700);
     });
 }
@@ -175,7 +183,7 @@ const Layouts = {
                                   <img src="${GITHUB_ASSETS}${link.icon}" class="big-brand-icon" alt="${link.type}" decoding="async">
                               </a>
                               <button class="mini-copy-btn" 
-                                      onclick="copyToClipboard('${link.value}', '${glitchPath}')">
+                                      onclick="copyToClipboard(this, '${link.value}', '${glitchPath}')">
                                   <img src="${copyIconPath}" alt="Copy" decoding="async">
                               </button>
                           </div>
