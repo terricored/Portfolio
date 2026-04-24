@@ -45,7 +45,7 @@
     /* Scaled up to match the larger section */
     color: var(--text-dim);
     margin-bottom: 3rem;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 /* 2. THE DYNAMIC GRID */
