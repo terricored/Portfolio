@@ -32,41 +32,44 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     /* Change this from center to 'start' or 'normal' */
-    justify-content: flex-start; 
+    justify-content: flex-start;
 
     min-height: 100dvh;
     width: 100%;
     text-align: center;
     box-sizing: border-box;
-    padding: 60px 20px; /* Top/bottom padding for the arrow/content */
+    padding: 60px 20px;
+    /* Top/bottom padding for the arrow/content */
     position: relative;
 
-/* Background Logic */
+    /* Background Logic */
     background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/plajkahoriz.png");
-    
+
     /* 1. Set the size to 75% (100% minus 12.5% padding on both sides) */
-    background-size: 75% 60%; 
-    
+    background-size: 75% 60%;
+
     /* 2. Place the background */
-    background-position: 50% 30%; 
-    
+    background-position: 50% 30%;
+
     /* 3. Prevent tiling */
     background-repeat: no-repeat;
-    
+
     /* Optional: Ensure the background color fills the 25% padding area */
     background-color: transparent;
 }
 
 /* 1. Push the title/desc group to the center */
 .chess-header .art-title {
-    margin-top: auto; /* Pushes everything above it away */
+    margin-top: auto;
+    /* Pushes everything above it away */
 }
 
 /* 2. Push the scroll hint to the bottom */
 .chess-header .scroll-hint {
-    margin-top: auto; /* Pushes the hint to the very bottom of the 100dvh */
+    margin-top: auto;
+    /* Pushes the hint to the very bottom of the 100dvh */
     opacity: 0.5;
     color: var(--text-dim);
     font-size: var(--fs-chess-arrow);
@@ -75,14 +78,15 @@
     justify-content: center;
     align-items: center;
 
-    height: 100px; 
+    height: 140px;
     overflow: visible;
     animation: bounce 2s infinite;
 }
 
 .chess-header .scroll-hint img {
     width: auto;
-    height: 70px; /* Force a consistent height */
+    height: 70px;
+    /* Force a consistent height */
     display: block;
     pointer-events: none;
 }
@@ -93,9 +97,22 @@
 
 /* Optional: Subtle bounce for the arrow */
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-20px);}
-    60% {transform: translateY(-10px);}
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
 }
 
 /* --- Grid Rows --- */
@@ -158,6 +175,7 @@
 }
 
 .chess-visual-box {
+    margin-top: calc(var(--snap-offset) * -1);
     display: flex;
     flex-direction: column;
     gap: 80px;
@@ -197,7 +215,8 @@
     .chess-row,
     .chess-row:nth-child(even) {
         display: flex;
-        flex-direction: column; /* Stacks vertically */
+        flex-direction: column;
+        /* Stacks vertically */
         direction: ltr;
         gap: 30px;
     }

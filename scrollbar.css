@@ -55,7 +55,7 @@
 /* 3. The Beetle (Juk) */
 ::-webkit-scrollbar-thumb,
 *::-webkit-scrollbar-thumb {
-    background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/ravl.png") !important;
+    background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/scroller2.png") !important;
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
@@ -71,5 +71,5 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/scroller.png") !important;
+    background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/scroller1.png") !important;
 }

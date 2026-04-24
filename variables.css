@@ -45,8 +45,8 @@
   /* Gap between image and info in Stack layout */
   --split-grid-ratio: 1fr 1fr;
   /* Ratio for the split page layout */
-  --snap-offset: 30px;
-  --chess-max-img-height: calc(95vh - (var(--snap-offset) * 2));
+  --snap-offset: 50px;
+  --chess-max-img-height: calc(95vh);
   --contact-section-gap: 3vw;
   --icon-big-size: 200px;
   --icon-small-size: 50px;
