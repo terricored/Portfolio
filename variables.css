@@ -30,22 +30,34 @@
   --bg-color: #000000;
   --bg-page: #050505;
   --text-main: #ffffff;
-  --text-dim: rgb(67,67,67);
+  --text-dim: rgb(67, 67, 67);
 
   /* --- Spacing & Proportions --- */
-  --page-padding: 30px;      /* Top padding for detail pages */
-  --contacts-padding: 5vh;      /* Top padding for contacts pages */
-  --img-max-height: 90vh;    /* Your 90% viewport height rule */
-  --chess-gap: 150px;        /* Vertical space between chess rows */
-  --stack-gap: 80px;         /* Gap between image and info in Stack layout */
-  --split-grid-ratio: 1fr 1fr; /* Ratio for the split page layout */
+  --page-padding: 30px;
+  /* Top padding for detail pages */
+  --contacts-padding: 5vh;
+  /* Top padding for contacts pages */
+  --img-max-height: 90vh;
+  /* Your 90% viewport height rule */
+  --chess-gap: 150px;
+  /* Vertical space between chess rows */
+  --stack-gap: 80px;
+  /* Gap between image and info in Stack layout */
+  --split-grid-ratio: 1fr 1fr;
+  /* Ratio for the split page layout */
   --snap-offset: 30px;
   --chess-max-img-height: calc(95vh - (var(--snap-offset) * 2));
   --contact-section-gap: 3vw;
   --icon-big-size: 200px;
   --icon-small-size: 50px;
-  
+
   /* --- Footer Specific --- */
   --footer-padding: 40px;
   --footer-opacity: 0.3;
+
+  /* DEFAULT STATE (Hand) */
+  --cursor-default: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hand1.png") 0 0, auto;
+
+  /* POINTER STATE (Hand 2 - for links/buttons) */
+  --cursor-pointer: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/hand2.png") 0 0, pointer;
 }

@@ -1,82 +1,11 @@
 const artData = [
   {
-    title: "бестіаріат",
-    filename: "nullimage@0,33x.png",
-    desc: "химерний кольоровий зоопарк.",
-    year: "2025",
-    medium: "акварель, папір",
-    type: "image-stack",
-    images: [
-      { src: "bestiariat.png", overlap: 0 }
-    ]
-  },
-  {
-    title: "уродікі",
-    filename: "nullimage@0,33x.png",
-    desc: "графічна серія, присвячена відчуттю безпорадності.",
-    year: "2025-",
-    medium: "папір, гелева ручка",
-    type: "image-stack",
-    images: [
-      { src: "ur1.png", overlap: 0 },
-      { src: "ur2.png", overlap: 0 },
-      { src: "ur3.png", overlap: 0 },
-      { src: "ur4.png", overlap: 0 },
-      { src: "ur5.png", overlap: 0 }
-    ]
-  },
-  {
-    title: "контакти",
-    title2: "зв`язатись зі мною:",
-    filename: "shy.png",
-    desc:
-      "terricored@gmail.com \n tg @yukozub \n inst @terricored \n facebook.com/shayakhmetovayulya/",
-    year: "2025",
-    medium: "Oil on Canvas",
-    type: "contact",
-    desc: "",
-    reactionImg: "shy.png",
-    glitchGif: "shy2.gif",
-    links: [
-      { label: "EMAIL", value: "terricored@gmail.com", url: "mailto:terricored@gmail.com", icon: "email.png" },
-      { label: "FACEBOOK", value: "fb.com/shayakhmetovayulya/", url: "https://facebook.com/shayakhmetovayulya/", icon: "fb.png" },
-      { label: "TELEGRAM", value: "@yukozub", url: "https://t.me/yukozub", icon: "tg.png" },
-      { label: "INSTAGRAM", value: "@terricored", url: "https://instagram.com/terricored", icon: "ig.png" }
-    ]
-  },
-  {
-    title: "cv",
-    filename: "nullimage@0,33x.png",
-    desc:
-      "Освіта: \n > Одеський художній фаховий коледж ім. М.Б. Грекова (2017 – 2021) \n > Національна академія образотворчого мистецтва та архітектури (2021 – теперішній час) \n \n Обрані виставки та проекти: \n > 1-е місце в н-ції “Друкована графіка” Міжнародного конкурсу  «INTER INTRO BOOK PRINT» (Київ, 2024) \n > Виставка «Графічні історії», Ірпінський історико-краєзнавчий музей (Ірпінь, 2024) \n > Виставка «Трикутник та пряма лінія», Львівський муніципальний мистецький центр, Gareleya Neotodryosh (Львів, 2023) \n > Каталог «Погляд на дві тисячі ярдів», Gareleya Neotodryosh (Львів, 2022) \n> Виставка «Гучна тиша» у рамках фестивалю LE FESTIVAL DES CULTURES EST-OUEST 6e ÉDITION (Париж, 2022) \n> Виставка «Межі» у рамках проекту студентів Львівської академії мистецтва «Буквально андеґраундна виставка» (Львів, 2022) \n > «Ескіз-пленер-сувенір» – колаборація молодих художників із Музеєм сучасного мистецтва Одеси під кураторством Ігоря Гусєва та Сергія Ануфрієва (Одеса, 2020)\n > «Розфокус» – студентська виставка, Одеський художній фаховий коледж ім. М.Б. Грекова (Одеса, 2019)  \n > «Паралелі» – студентська виставка в Одеському муніципальному музеї Особистих колекцій ім. О.В. Блещунова, Одеса (Одеса, 2019) ",
-    year: "2026",
-    medium: "Digital Animation",
-    type: "pdf",
-    fileUrl: "https://terricored.github.io/Portfolio/assets/CV.pdf"
-  },
-  {
-    title: "екстра",
-    filename: "nullimage@0,33x.png",
-    desc: "тут скоро щось буде",
-    year: "",
-    medium: "",
-    type: "art-split"
-  },
-  {
-    title: "про мене",
-    filename: "mepage1.png",
-    desc:
-      "\n моя практика з того, що мені вдалось забрати з собою в 2014 році, і  про те, що мені довелось залишити.\n \n коли я тільки стала переселенкою, тема війни багатьом здавалася локальною, незручною та нав'язливою, в розмовах зі мною люди часто намагались зам'яти її та перевести мою увагу на те, що тепер я живу в іншому місті, і маю прагнути відчувати себе його частиною. панувало уявлення, що війна - як інфекційне захворювання, і якщо посадити цю тему на карантин, то війна не торкнеться інших територій. ми знаємо сьогодні, що це уявлення хибне, але тоді я відчувала себе покинутою та дефективною, і щоб зарадити собі, я шукала будь-які медіа, що висвітлювали б досвід інших переселенців. \n \n я працюю, щоб інші, хто шукає цей зв'язок з домом, мали змогу знайти його через мене.",
-    year: "",
-    medium: "",
-    type: "art-split"
-  },
-  {
     title: "впо",
     filename: "vpo1234.png",
     desc: "цикл робіт, зосереджений на досвіді вимушенного переміщення",
     year: "",
     type: "chess",
+    pos: 1,
     rows: [
       {
         title: "впо",
@@ -113,7 +42,7 @@ const artData = [
         media: [
           { type: "image", src: "dim.png" }
         ]
-      },   
+      },
       {
         title: "Макєєвка - громко",
         year: "2023",
@@ -132,11 +61,12 @@ const artData = [
           { type: "image", src: "nenapytys.png" }
         ]
       }]
-      },
+  },
   {
     title: "зіни",
     filename: "nullimage@0,33x.png",
     type: "chess",
+    pos: 2,
     desc: "мої самвидави, арт-буки та зіни",
     rows: [
       {
@@ -177,5 +107,83 @@ const artData = [
         ]
       },
     ]
+  },
+  {
+    title: "бестіаріат",
+    filename: "nullimage@0,33x.png",
+    desc: "химерний кольоровий зоопарк.",
+    year: "2025",
+    medium: "акварель, папір",
+    type: "image-stack",
+    pos: 3,
+    images: [
+      { src: "bestiariat.png", overlap: 0 }
+    ]
+  },
+  {
+    title: "уродікі",
+    filename: "nullimage@0,33x.png",
+    desc: "графічна серія, присвячена відчуттю безпорадності.",
+    year: "2025-",
+    medium: "папір, гелева ручка",
+    type: "image-stack",
+    pos: 4,
+    images: [
+      { src: "ur1.png", overlap: 0 },
+      { src: "ur2.png", overlap: 0 },
+      { src: "ur3.png", overlap: 0 },
+      { src: "ur4.png", overlap: 0 },
+      { src: "ur5.png", overlap: 0 }
+    ]
+  },
+  {
+    title: "екстра",
+    filename: "nullimage@0,33x.png",
+    desc: "тут скоро щось буде",
+    year: "",
+    medium: "",
+    type: "art-split",
+    pos: 5
+  },
+  {
+    title: "контакти",
+    title2: "зв`язатись зі мною:",
+    filename: "shy.png",
+    desc:
+      "terricored@gmail.com \n tg @yukozub \n inst @terricored \n facebook.com/shayakhmetovayulya/",
+    year: "2025",
+    medium: "Oil on Canvas",
+    type: "contact",
+    pos: 6,
+    desc: "",
+    reactionImg: "shy.png",
+    glitchGif: "shy2.gif",
+    links: [
+      { label: "EMAIL", value: "terricored@gmail.com", url: "mailto:terricored@gmail.com", icon: "email.png" },
+      { label: "FACEBOOK", value: "fb.com/shayakhmetovayulya/", url: "https://facebook.com/shayakhmetovayulya/", icon: "fb.png" },
+      { label: "TELEGRAM", value: "@yukozub", url: "https://t.me/yukozub", icon: "tg.png" },
+      { label: "INSTAGRAM", value: "@terricored", url: "https://instagram.com/terricored", icon: "ig.png" }
+    ]
+  },
+  {
+    title: "cv",
+    filename: "nullimage@0,33x.png",
+    desc:
+      "Освіта: \n > Одеський художній фаховий коледж ім. М.Б. Грекова (2017 – 2021) \n > Національна академія образотворчого мистецтва та архітектури (2021 – теперішній час) \n \n Обрані виставки та проекти: \n > 1-е місце в н-ції “Друкована графіка” Міжнародного конкурсу  «INTER INTRO BOOK PRINT» (Київ, 2024) \n > Виставка «Графічні історії», Ірпінський історико-краєзнавчий музей (Ірпінь, 2024) \n > Виставка «Трикутник та пряма лінія», Львівський муніципальний мистецький центр, Gareleya Neotodryosh (Львів, 2023) \n > Каталог «Погляд на дві тисячі ярдів», Gareleya Neotodryosh (Львів, 2022) \n> Виставка «Гучна тиша» у рамках фестивалю LE FESTIVAL DES CULTURES EST-OUEST 6e ÉDITION (Париж, 2022) \n> Виставка «Межі» у рамках проекту студентів Львівської академії мистецтва «Буквально андеґраундна виставка» (Львів, 2022) \n > «Ескіз-пленер-сувенір» – колаборація молодих художників із Музеєм сучасного мистецтва Одеси під кураторством Ігоря Гусєва та Сергія Ануфрієва (Одеса, 2020)\n > «Розфокус» – студентська виставка, Одеський художній фаховий коледж ім. М.Б. Грекова (Одеса, 2019)  \n > «Паралелі» – студентська виставка в Одеському муніципальному музеї Особистих колекцій ім. О.В. Блещунова, Одеса (Одеса, 2019) ",
+    year: "2026",
+    medium: "Digital Animation",
+    type: "pdf",
+    pos: 7,
+    fileUrl: "https://terricored.github.io/Portfolio/assets/CV.pdf"
+  },
+  {
+    title: "про мене",
+    filename: "mepage1.png",
+    desc:
+      "\n моя практика з того, що мені вдалось забрати з собою в 2014 році, і  про те, що мені довелось залишити.\n \n коли я тільки стала переселенкою, тема війни багатьом здавалася локальною, незручною та нав'язливою, в розмовах зі мною люди часто намагались зам'яти її та перевести мою увагу на те, що тепер я живу в іншому місті, і маю прагнути відчувати себе його частиною. панувало уявлення, що війна - як інфекційне захворювання, і якщо посадити цю тему на карантин, то війна не торкнеться інших територій. ми знаємо сьогодні, що це уявлення хибне, але тоді я відчувала себе покинутою та дефективною, і щоб зарадити собі, я шукала будь-які медіа, що висвітлювали б досвід інших переселенців. \n \n я працюю, щоб інші, хто шукає цей зв'язок з домом, мали змогу знайти його через мене.",
+    year: "",
+    medium: "",
+    pos: 8,
+    type: "art-split"
   }
 ];

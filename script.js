@@ -37,14 +37,14 @@ function preloadAssets(artPieces) {
         }
     });
 
-   const uniqueImages = [...new Set(imagesToPreload)];
+    const uniqueImages = [...new Set(imagesToPreload)];
 
     const promises = uniqueImages.map(src => {
         return new Promise((resolve) => {
             const img = new Image();
             img.src = src;
             img.onload = resolve;
-            img.onerror = resolve; 
+            img.onerror = resolve;
         });
     });
 
@@ -52,24 +52,24 @@ function preloadAssets(artPieces) {
 }
 
 function copyToClipboard(text, glitchImgPath) {
-  navigator.clipboard.writeText(text).then(() => {
-    const statusImg = document.getElementById('contact-status-img');
-    if (!statusImg) return;
+    navigator.clipboard.writeText(text).then(() => {
+        const statusImg = document.getElementById('contact-status-img');
+        if (!statusImg) return;
 
-    const defaultImg = statusImg.getAttribute('data-default');
+        const defaultImg = statusImg.getAttribute('data-default');
 
-    statusImg.src = glitchImgPath;
+        statusImg.src = glitchImgPath;
 
-    setTimeout(() => {
-      statusImg.src = defaultImg;
-    }, 700);
-  });
+        setTimeout(() => {
+            statusImg.src = defaultImg;
+        }, 700);
+    });
 }
 
 /* --- LAYOUT RENDERERS --- */
 
 const Layouts = {
-  "art-split": (art) => `
+    "art-split": (art) => `
         <div class="layout-split">
             <div class="art-visual">
                 <img src="${GITHUB_ASSETS}${art.filename}" alt="${art.title}">
@@ -82,7 +82,7 @@ const Layouts = {
         </div>
     `,
 
-  "art-full": (art) => `
+    "art-full": (art) => `
         <div class="layout-standard">
             <div class="art-info header-info">
                 <h1 class="art-title">${art.title}</h1>
@@ -97,7 +97,7 @@ const Layouts = {
         </div>
     `,
 
-  "image-stack": (art) => `
+    "image-stack": (art) => `
         <div class="layout-stack-continuous">
             <div class="stack-columns">
                 <div class="stack-visual-col">
@@ -116,7 +116,7 @@ const Layouts = {
         </div>
     `,
 
-  "chess": (art) => `
+    "chess": (art) => `
         <div class="layout-chess">
             <div class="chess-header">
             <h1 class="art-title">${art.title}</h1>
@@ -143,11 +143,11 @@ const Layouts = {
         </div>
     `,
 
-"contact": (art) => {
-    const copyIconPath = `${GITHUB_ASSETS}copy.png`;
-    const glitchPath = `${GITHUB_ASSETS}${art.glitchGif}`;
+    "contact": (art) => {
+        const copyIconPath = `${GITHUB_ASSETS}copy.png`;
+        const glitchPath = `${GITHUB_ASSETS}${art.glitchGif}`;
 
-    return `
+        return `
       <div class="contact-page-wrapper">
           <div class="contact-visual">
               <img id="contact-status-img" 
@@ -177,112 +177,160 @@ const Layouts = {
           </div>
       </div>
     `;
-  }
+    }
 };
 
 /* --- CORE FUNCTIONS --- */
 
 function showArtDetails(art) {
-  const detailPage = document.getElementById("art-detail-page");
-  const container = document.getElementById("detail-content-wrapper");
+    const detailPage = document.getElementById("art-detail-page");
+    const container = document.getElementById("detail-content-wrapper");
 
-  // Scroll to top before transition
-  detailPage.scrollTo({ top: 0, behavior: 'instant' });
+    // Scroll to top before transition
+    detailPage.scrollTo({ top: 0, behavior: 'instant' });
 
-  if (art.type === "pdf") {
-    window.open(art.fileUrl, '_blank');
-    return
-  }
+    if (art.type === "pdf") {
+        window.open(art.fileUrl, '_blank');
+        return
+    }
 
-  // Use the Layouts map to inject HTML
-  const renderFn = Layouts[art.type] || Layouts["art-full"];
-  container.innerHTML = renderFn(art);
+    // Use the Layouts map to inject HTML
+    const renderFn = Layouts[art.type] || Layouts["art-full"];
+    container.innerHTML = renderFn(art);
 
-  document.getElementById("main-page").classList.remove("active");
-  detailPage.classList.add("active");
+    document.getElementById("main-page").classList.remove("active");
+    detailPage.classList.add("active");
 }
 
 function closeArtDetails() {
-  document.getElementById("art-detail-page").classList.remove("active");
-  document.getElementById("main-page").classList.add("active");
-  // Clear innerHTML after transition to save memory
-  setTimeout(() => {
-    document.getElementById("detail-content-wrapper").innerHTML = "";
-  }, 400);
+    document.getElementById("art-detail-page").classList.remove("active");
+    document.getElementById("main-page").classList.add("active");
+    // Clear innerHTML after transition to save memory
+    setTimeout(() => {
+        document.getElementById("detail-content-wrapper").innerHTML = "";
+    }, 400);
 }
 
 /* --- GALLERY ENGINE --- */
 
 // Add these helper functions back to the top of script.js
 function randomSigned(min, max) {
-  const positive = min + Math.random() * (max - min);
-  return Math.random() < 0.5 ? positive : -positive;
+    const positive = min + Math.random() * (max - min);
+    return Math.random() < 0.5 ? positive : -positive;
 }
 
 function applyFloating(el, minX, maxX, minY, maxY, minScale, maxScale, minDuration, maxDuration) {
-  const floatX = randomSigned(minX, maxX);
-  const floatY = randomSigned(minY, maxY);
-  const scale = (1 + randomSigned(minScale, maxScale)).toFixed(2);
-  const duration = (minDuration + Math.random() * (maxDuration - minDuration)).toFixed(2) + "s";
-  const delay = (Math.random() * -5).toFixed(2) + "s"; // Negative delay starts animation mid-way
+    const floatX = randomSigned(minX, maxX);
+    const floatY = randomSigned(minY, maxY);
+    const scale = (1 + randomSigned(minScale, maxScale)).toFixed(2);
+    const duration = (minDuration + Math.random() * (maxDuration - minDuration)).toFixed(2) + "s";
+    const delay = (Math.random() * -5).toFixed(2) + "s"; // Negative delay starts animation mid-way
 
-  // Use CSS Variables to pass data to a single generic keyframe
-  el.style.setProperty('--float-x', `${floatX}px`);
-  el.style.setProperty('--float-y', `${floatY}px`);
-  el.style.setProperty('--float-scale', scale);
+    // Use CSS Variables to pass data to a single generic keyframe
+    el.style.setProperty('--float-x', `${floatX}px`);
+    el.style.setProperty('--float-y', `${floatY}px`);
+    el.style.setProperty('--float-scale', scale);
 
-  el.style.animation = `floating-organic ${duration} ease-in-out ${delay} infinite`;
+    el.style.animation = `floating-organic ${duration} ease-in-out ${delay} infinite`;
 }
 
-// Update the loadGallery function to include random distance
+// 1. Create the elements (Run once)
 function loadGallery() {
-  const container = document.querySelector(".container");
-  const overlayLayer = document.querySelector(".hover-overlay-layer");
-  const midLayer = document.querySelector(".hover-mid-layer");
+    const container = document.querySelector(".container");
+    const overlayLayer = document.querySelector(".hover-overlay-layer");
+    const midLayer = document.querySelector(".hover-mid-layer");
 
-  artData.forEach((art, i) => {
-    const opt = document.createElement("div");
-    opt.classList.add("option");
+    artData.forEach((art) => {
+        const opt = document.createElement("div");
+        opt.classList.add("option");
 
-    // Randomize the distance (Radius)
-    const baseRadius = window.innerWidth < 600 ? 140 : 240;
-    const variation = Math.random() * 40 - 20; // Adds +/- 20px variation
-    const radius = baseRadius + variation;
+        let finalAngle;
+        if (art.angle !== undefined) {
+            finalAngle = art.angle;
+        } else {
+            finalAngle = (45 * art.pos) - 22.5 - 90;
+        }
 
-    const angle = (360 / artData.length) * i + 22.5;
-    const snappedAngle = (Math.round(angle / 45) * 45) % 360;
+        opt.dataset.pos = finalAngle;
 
-    opt.style.transform = `translate(-50%, -50%) rotate(${angle}deg) translate(${radius}px) rotate(${-angle}deg)`;
+        const textSpan = document.createElement("span");
+        textSpan.textContent = art.title;
+        opt.appendChild(textSpan);
 
-    const textSpan = document.createElement("span");
-    textSpan.textContent = art.title;
-    opt.appendChild(textSpan);
+        applyFloating(textSpan, 1, 3, 1, 3, 0.01, 0.02, 2, 4);
 
-    // Re-apply the floating animation to the text
-    applyFloating(textSpan, 1, 3, 1, 3, 0.01, 0.02, 2, 4);
+        // Calculate snapped angle once for the asset matching
+        const snappedAngle = (Math.round((360 + finalAngle) / 45) * 45) % 360;
 
-    opt.addEventListener("mouseenter", () => {
-      overlayLayer.style.backgroundImage = `url('${GITHUB_ASSETS}${snappedAngle}n.png')`;
-      midLayer.classList.add("active");
-      overlayLayer.classList.add("active");
+        opt.addEventListener("mouseenter", () => {
+            overlayLayer.style.backgroundImage = `url('${GITHUB_ASSETS}${snappedAngle}n.png')`;
+            midLayer.classList.add("active");
+            overlayLayer.classList.add("active");
+        });
+
+        opt.addEventListener("mouseleave", () => {
+            midLayer.classList.remove("active");
+            overlayLayer.classList.remove("active");
+        });
+
+        opt.addEventListener("click", () => showArtDetails(art));
+        container.appendChild(opt);
     });
 
-    opt.addEventListener("mouseleave", () => {
-      midLayer.classList.remove("active");
-      overlayLayer.classList.remove("active");
-    });
-
-    opt.addEventListener("click", () => showArtDetails(art));
-    container.appendChild(opt);
-  });
+    // Position them for the first time
+    positionOptions();
 }
+
+// 2. Position the elements (Reusable for Resize)
+function positionOptions() {
+    const options = document.querySelectorAll(".option");
+    const isMobile = window.innerWidth < 600;
+
+    // Define two radii for the oval
+    let radiusX, radiusY;
+
+    if (isMobile) {
+        // Tall Oval for phones (Portrait)
+        radiusX = 140;
+        radiusY = 200;
+    } else {
+        // Wide Oval for desktop (Landscape)
+        radiusX = 250;
+        radiusY = 250;
+    }
+
+    options.forEach((opt) => {
+        const angle = parseFloat(opt.dataset.pos);
+
+        let padding;
+        if (angle >= 0 && angle <= 180) {
+            padding = 10;
+        } else {
+            padding = 0;
+        }
+
+        const variation = Math.random() * 40 - 20;
+        const radian = angle * (Math.PI / 180);
+        const x = Math.cos(radian) * (radiusX + variation) - padding;
+        const y = Math.sin(radian) * (radiusY + variation) - padding;
+
+        // Apply the position using translate
+        opt.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+    });
+}
+
+// 3. Listen for Window Resize
+window.addEventListener("resize", () => {
+    // Use a debounce or requestAnimationFrame for smoother performance
+    requestAnimationFrame(positionOptions);
+});
 
 /* --- INIT --- */
 
 document.addEventListener("DOMContentLoaded", () => {
     // Start preloading immediately
     const assetPromise = preloadAssets(artData);
-    
+
     loadGallery();
 
     const backBtn = document.getElementById("back-button");
@@ -302,6 +350,26 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 loader.style.display = "none";
             }, 600);
-        }, 800); 
+        }, 800);
     });
+});
+
+// Disables right-click and dragging globally without changing HTML structure
+document.addEventListener('contextmenu', e => {
+    if (e.target.tagName === 'IMG') e.preventDefault();
+}, false);
+
+document.addEventListener('dragstart', e => {
+    if (e.target.tagName === 'IMG') e.preventDefault();
+}, false);
+
+window.addEventListener('mousedown', (e) => {
+    // Only trigger for Left Mouse Button (button 0)
+    if (e.button === 0) {
+        document.body.classList.add('is-clicking');
+    }
+});
+
+window.addEventListener('mouseup', () => {
+    document.body.classList.remove('is-clicking');
 });
