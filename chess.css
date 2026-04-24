@@ -178,9 +178,9 @@
     margin-top: calc(var(--snap-offset) * -1);
     display: flex;
     flex-direction: column;
-    gap: 80px;
-    max-height: var(--chess-max-img-height);
-    overflow: hidden;
+    gap: 30px;
+    max-height: none;
+    overflow: visible;
 }
 
 .chess-visual-box img {

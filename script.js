@@ -119,12 +119,12 @@ const Layouts = {
     "chess": (art) => `
         <div class="layout-chess">
             <div class="chess-header">
-            <h1 class="art-title">${art.title}</h1>
-            <p class="art-description">${art.desc}</p>
-            <div class="scroll-hint">
-    <img src="https://raw.githubusercontent.com/terricored/Portfolio/main/assets/pointerforplajka.png" alt="↓" class="custom-arrow">
-</div>
-        </div>
+                <h1 class="art-title">${art.title}</h1>
+                <p class="art-description">${art.desc}</p>
+                <div class="scroll-hint">
+                    <img src="https://raw.githubusercontent.com/terricored/Portfolio/main/assets/pointerforplajka.png" alt="↓" class="custom-arrow">
+                </div>
+            </div>
             <div class="chess-body">
                 ${art.rows.map((row, i) => `
                     <section class="chess-row ${i % 2 !== 0 ? 'flipped' : ''}">
@@ -135,7 +135,9 @@ const Layouts = {
                             <p class="row-description">${row.desc}</p>
                         </div>
                         <div class="chess-visual-box">
-                            <img src="${GITHUB_ASSETS}${row.media[0].src}" alt="${row.title}">
+                            ${row.media.map(item => `
+                                <img src="${GITHUB_ASSETS}${item.src}" alt="${row.title}">
+                            `).join('')}
                         </div>
                     </section>
                 `).join('')}
