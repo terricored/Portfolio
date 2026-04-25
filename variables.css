@@ -46,7 +46,7 @@
   --split-grid-ratio: 1fr 1fr;
   /* Ratio for the split page layout */
   --snap-offset: 50px;
-  --chess-max-img-height: calc(95vh) - (var(--snap-offset) * 2);
+  --chess-max-img-height: calc(95vh - (var(--snap-offset) * 2));
   --contact-section-gap: 3vw;
   --icon-big-size: 170px;
   --icon-small-size: 50px;
