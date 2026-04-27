@@ -64,7 +64,7 @@ const artData = [
         title: "про речі",
         year: "квадріптих\n 2024",
         medium: "левкас на дошках",
-        desc: "... і про чотири стадії прощання з ними",
+        desc: "... і про чотири стадії\n прощання з ними.",
         media: [
           { type: "image", src: "prorechibrokchess.webp" }
         ]
