@@ -75,8 +75,10 @@ function copyToClipboard(btn, text, glitchImgPath) {
 
         setTimeout(() => {
             statusImg.src = defaultImg;
-            iconImg.src = defaultIcon;
         }, 1800);
+        setTimeout(() => {
+            iconImg.src = defaultIcon;
+        }, 1500);
     });
 }
 
