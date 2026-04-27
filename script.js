@@ -68,7 +68,7 @@ function copyToClipboard(btn, text, glitchImgPath) {
         const defaultImg = statusImg.getAttribute('data-default');
         const defaultIcon = iconImg.src;
 
-        const successIcon = `${GITHUB_ASSETS}copygif.webp`;
+        const successIcon = `${GITHUB_ASSETS}copy.webp`;
 
         statusImg.src = glitchImgPath;
         iconImg.src = successIcon;
