@@ -153,7 +153,7 @@ const artData = [
     pos: 6,
     desc: "",
     reactionImg: "shy.webp",
-    glitchGif: "shy2.webp",
+    glitchGif: "shynew.webp",
     links: [
       { label: "EMAIL", value: "terricored@gmail.com", url: "mailto:terricored@gmail.com", icon: "email.webp" },
       { label: "FACEBOOK", value: "fb.com/shayakhmetovayulya/", url: "https://facebook.com/shayakhmetovayulya/", icon: "fb.webp" },
