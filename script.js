@@ -17,7 +17,8 @@ function preloadAssets(artPieces) {
         DEFAULT_IMG,
         `${GITHUB_ASSETS}wormload.webp`, // Preload the loader itself for next time
         `${GITHUB_ASSETS}juk.webp`, // Preload the loader itself for next time
-        `${GITHUB_ASSETS}shy2.webp`,
+        `${GITHUB_ASSETS}shygif.webp`,
+        `${GITHUB_ASSETS}copygif.webp`,
         `${GITHUB_ASSETS}plajkahoriz.webp`
     ];
 
