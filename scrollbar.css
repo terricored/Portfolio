@@ -28,17 +28,6 @@
     filter: brightness(1.2) contrast(1.1);
 }
 
-@media (max-width: 768px) {
-    ::-webkit-scrollbar {
-        width: 4px; /* Thin, subtle line for mobile */
-    }
-    ::-webkit-scrollbar-thumb {
-        background-image: none;
-        background-color: var(--text-dim);
-        border-radius: 10px;
-    }
-}
-
 /* 1. Target EVERYTHING that scrolls */
 ::-webkit-scrollbar,
 *::-webkit-scrollbar {
@@ -72,4 +61,25 @@
 
 ::-webkit-scrollbar-thumb:hover {
     background-image: url("https://raw.githubusercontent.com/terricored/Portfolio/main/assets/scroller1.webp") !important;
+}
+
+/* Target mobile devices */
+@media (max-width: 768px) {
+    /* 1. Hide for Chrome, Safari, and Opera */
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar,
+    *::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+    }
+
+    /* 2. Hide for Firefox */
+    html {
+        scrollbar-width: none !important;
+    }
+
+    /* 3. Hide for IE and Edge */
+    body {
+        -ms-overflow-style: none;
+    }
 }
