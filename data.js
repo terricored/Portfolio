@@ -68,6 +68,24 @@ const artData = [
         media: [
           { type: "image", src: "prorechibrokchess.webp" }
         ]
+      },
+      {
+        title: "золотії копєра",
+        year: "2026",
+        medium: "пап'є-маше, гелева ручка",
+        desc: " я сумую за степом,\n якого не встигла побачити,\n і шахтою, якої не запам’ятала.",
+        media: [
+          { type: "image", src: "zolotiyikopera.webp" }
+        ]
+      },
+      {
+        title: "сьогодні на шахті повний місяць",
+        year: "2026",
+        medium: "пап'є-маше, офорт",
+        desc: "присвячено тим ночам,\n які моя мама провела у вугільній робі.",
+        media: [
+          { type: "image", src: "syogodni.webp" }
+        ]
       }]
   },
   {
